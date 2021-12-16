@@ -152,6 +152,11 @@ namespace GXPEngine
                 isJumping = false;
                 canJump = true;
             }
+            if (fallingSpeed > 0)
+            {
+                isJumping = true;
+                canJump = false;
+            }
         }
 
         void Attack()

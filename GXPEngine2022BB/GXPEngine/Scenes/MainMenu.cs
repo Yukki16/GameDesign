@@ -8,6 +8,7 @@ namespace GXPEngine.Scenes
 {
     class MainMenu : GameObject
     {
+        GXPEngine.Button button;
         TiledLoader loader;
         public MainMenu() : base()
         {
@@ -24,6 +25,7 @@ namespace GXPEngine.Scenes
             loader.LoadTileLayers(0);
             loader.LoadObjectGroups();
 
+            button = FindObjectOfType<Button>();
             //player = FindObjectOfType<Player>();
             //Console.WriteLine(player);
             // Console.WriteLine(player.x + "/" +player.y);

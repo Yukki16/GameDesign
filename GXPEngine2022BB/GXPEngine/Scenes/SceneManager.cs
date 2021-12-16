@@ -13,21 +13,24 @@ namespace GXPEngine.Scenes
 
         public SceneManager(String currentLevel)
         {
+            LoadLevel(currentLevel);
+        }
+
+        public void LoadLevel(string currentLevel)
+        {
             if (currentLevel == "level_1")
             {
                 DestroyAll();
                 AddChild(level1);
                 level1.CreateLevel();
-            }else if(currentLevel == "MainMenu")
+            }
+            else if (currentLevel == "MainMenu")
             {
                 DestroyAll();
                 AddChild(mainMenu);
                 mainMenu.CreateLevel();
             }
 
-            
-
-            
         }
 
         private void DestroyAll()
