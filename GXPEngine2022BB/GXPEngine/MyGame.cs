@@ -13,7 +13,7 @@ public class MyGame : Game
 	{
 		//camera = new Camera(0,0, 1024/2, 576/2);
 		//AddChild(camera);
-		sceneManager = new GXPEngine.Scenes.SceneManager("MainMenu");
+		sceneManager = new GXPEngine.Scenes.SceneManager("level_1");
 		AddChild(sceneManager);
 
 		//Sprite sprite = new Player(null);

@@ -22,7 +22,7 @@ namespace GXPEngine.Scenes
 
         public void CreateLevel()
         {
-            loader = new TiledLoader("Terrain/mapTest_1.tmx");
+            loader = new TiledLoader("Tiled/Level_1.tmx");
             loader.rootObject = this;
             loader.autoInstance = true;
             loader.addColliders = true;

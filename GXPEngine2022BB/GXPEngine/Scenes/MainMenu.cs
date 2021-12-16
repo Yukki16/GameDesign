@@ -16,9 +16,10 @@ namespace GXPEngine.Scenes
 
         public void CreateLevel()
         {
-            loader = new TiledLoader("Terrain/MainMenu.tmx");
+            loader = new TiledLoader("Tiled/MainMenu.tmx");
             loader.rootObject = this;
             loader.autoInstance = true;
+            loader.LoadImageLayers(0);
             loader.addColliders = true;
             loader.LoadTileLayers(0);
             loader.LoadObjectGroups();
