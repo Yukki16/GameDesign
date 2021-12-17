@@ -64,6 +64,7 @@ namespace GXPEngine
             HorizontalMovement();
             VerticalMovement();
             Attack();
+            GetHurt();
         }
 
         private void PlayerAnimations()
@@ -94,6 +95,7 @@ namespace GXPEngine
             {
                 animations.SetCycle(0, 6);
                 animations.Animate(0.1f);
+                DamageEnemy();
             }
             else if (isWalking)
             {
@@ -196,23 +198,50 @@ namespace GXPEngine
             }
         }
 
+        private void DamageEnemy()
+        {
+            GameObject[] objects = attackHitBox.GetCollisions(true, false);
+            for (int i = 0; i < objects.Length; i++)
+            {
+                if (objects[i] is Enemy)
+                {
+                    Enemy enemy = objects[i].FindObjectOfType<Enemy>();
+                    if (!enemy.gotDamaged)
+                    {
+                        enemy.LowerHP(damage);
+                        enemy.gotDamaged = true;
+                        enemy.damagedTimer = Time.time;
+                    }
+                }
+            }
+        }
+
         void GetHurt()
         {
             GameObject[] objects = this.GetCollisions(true, false);
             for (int i = 0; i < objects.Length; i++)
             {
-                if(objects[i] is Enemy) 
+                if(objects[i] is Enemy && !gotDamaged) 
                 {
+                    HP--;
                     gotDamaged = true;
                     takeDamageTimer = Time.time;
+                    //Console.WriteLine(takeDamageTimer);
                 }
             }
 
-            if(gotDamaged == true && takeDamageTimer - Time.time < 1000)
+            if(gotDamaged == true && Time.time - takeDamageTimer < 1000)
             {
                 animations.SetColor(Mathf.Sin(Time.time / 100.0f), 0, 0);
+                
+            }
+            else
+            {
+                gotDamaged = false;
+                animations.SetColor(1, 1, 1);
             }
         }
+        
     }
 
 

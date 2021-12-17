@@ -5,14 +5,19 @@ using System.Drawing;                           // System.Drawing contains drawi
 
 public class MyGame : Game
 {
-	//Player player;
-	//Map mapTest;
 	GXPEngine.Scenes.SceneManager sceneManager;
+
+	// TO DO LIST
+	/*
+	 1.Refactor the player movement
+	 2.Add the settings and choose level menus
+	 3.Add music
+	 
+	 */
 	
-	public MyGame() : base(1024/2, 576/2, false, false, 1024, 576, true)		// Create a window that's 800x600 and NOT fullscreen
+	public MyGame() : base(1024/2, 576/2, false, false, 1024, 576, true)
 	{
-		//camera = new Camera(0,0, 1024/2, 576/2);
-		//AddChild(camera);
+		
 		sceneManager = new GXPEngine.Scenes.SceneManager();
 		AddChild(sceneManager);
 
