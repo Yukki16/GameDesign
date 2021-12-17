@@ -8,7 +8,7 @@ namespace GXPEngine.Scenes
 {
     class Level1 : GameObject
     {
-        public String levelName = "level_1";
+        Enemy enemy;
         public Player player;
 
         //Map level;
@@ -30,6 +30,7 @@ namespace GXPEngine.Scenes
             loader.LoadObjectGroups();
             
             player = FindObjectOfType<Player>();
+            //enemy = FindObjectOfType<Enemy>();
             //Console.WriteLine(player);
            // Console.WriteLine(player.x + "/" +player.y);
         }

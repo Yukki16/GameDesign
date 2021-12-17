@@ -13,21 +13,16 @@ public class MyGame : Game
 	{
 		//camera = new Camera(0,0, 1024/2, 576/2);
 		//AddChild(camera);
-		sceneManager = new GXPEngine.Scenes.SceneManager("MainMenu");
+		sceneManager = new GXPEngine.Scenes.SceneManager();
 		AddChild(sceneManager);
 
-		//Sprite sprite = new Player(null);
-		//AddChild(sprite);
-		//sprite.x = 100;
-		//sprite.y = 100;
-		
+		sceneManager.LoadLevel("MainMenu");
 	}
 
 	// For every game object, Update is called every frame, by the engine:
 	void Update()
 	{
-		//sceneManager.x = -sceneManager.level1.player.x +width/2;
-		//sceneManager.y = -sceneManager.level1.player.y + height/2;
+		
 		
 	}
 

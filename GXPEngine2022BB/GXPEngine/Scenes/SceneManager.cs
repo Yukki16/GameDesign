@@ -7,18 +7,31 @@ namespace GXPEngine.Scenes
 {
     class SceneManager : GameObject
     {
-        public Level1 level1 = new Level1();
-        public MainMenu mainMenu = new MainMenu();
+        private Level1 level1 = new Level1();
+        private MainMenu mainMenu = new MainMenu();
+        public String currentLevel;
 
+        GameObject levelChild; // refers to the only child this class should have and has the player in it so I can get the x and y value to do the scrolling
 
-        public SceneManager(String currentLevel)
+        public SceneManager()
         {
-            LoadLevel(currentLevel);
+           
         }
+
+        void Update()
+        {
+            if(levelChild != null)
+            {
+                this.x = -this.levelChild.x + game.width / 2;
+                this.y = -this.levelChild.y + game.height / 2;
+            }
+
+        }
+
 
         public void LoadLevel(string currentLevel)
         {
-            if (currentLevel == "level_1")
+            if (currentLevel == "Level_1")
             {
                 DestroyAll();
                 AddChild(level1);
@@ -31,6 +44,7 @@ namespace GXPEngine.Scenes
                 mainMenu.CreateLevel();
             }
 
+            levelChild = this.FindObjectOfType<Player>();
         }
 
         private void DestroyAll()

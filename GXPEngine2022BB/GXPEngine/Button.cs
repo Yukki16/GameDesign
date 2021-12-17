@@ -9,14 +9,15 @@ namespace GXPEngine
 {
     class Button : Sprite
     {
-        Sprite visualButton;
+        GameObject myGame;
         String levelName;
+        Scenes.SceneManager sceneManager = new Scenes.SceneManager();
 
         public Button(TiledObject obj) : base("Buttons/" + obj.GetStringProperty("SpriteName"))
         {
-            //this.visualButton = nvisualButton;
             levelName = obj.GetStringProperty("Load");
-            //visualButton = new Sprite("Buttons/" + obj.GetStringProperty("SpriteName"));
+            myGame = game.FindObjectOfType<MyGame>();
+            //Console.WriteLine(myGame);
         }
 
         void Update()
@@ -27,9 +28,14 @@ namespace GXPEngine
                 {
 
                     this.SetColor(1, 1, 1);
-                    if (Input.GetMouseButton(0))
+                    if (Input.GetMouseButtonUp(0))
                     {
+                        
                         Console.WriteLine("pressed");
+                        parent.parent.parent.RemoveChild(parent.parent); //removes the scene manager from MyGame, I can't believe it actually works
+                                                                        //Button > MainMenu > SceneManager > MyGame
+                        sceneManager.LoadLevel(levelName);
+                        myGame.AddChild(sceneManager);
                     }
                 }
                 else
