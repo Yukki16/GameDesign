@@ -17,6 +17,7 @@ namespace GXPEngine
 
         private int HP = 3;
         private int xSpeed = 1;
+        
 
         AnimationSprite enemyAnimation;
         public Enemy(TiledObject obj) : base("Enemies/Debug.png")
@@ -67,7 +68,6 @@ namespace GXPEngine
 
         void HorizontalMovement()
         {
-
             if (MoveUntilCollision(xSpeed, 0) != null)
             {
                 xSpeed *= -1;

@@ -23,7 +23,7 @@ namespace GXPEngine.Scenes
             if(levelChild != null)
             {
                 this.x = -this.levelChild.x + game.width / 2;
-                this.y = -this.levelChild.y + game.height / 2;
+                this.y = -this.levelChild.y + 2 * game.height / 3;
             }
 
         }

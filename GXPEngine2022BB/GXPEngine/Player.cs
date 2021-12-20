@@ -72,7 +72,7 @@ namespace GXPEngine
             if (!isWalking && !isRunning && !isJumping && !isAttacking)
             {
                 animations.SetCycle(6, 4);
-                animations.Animate(0.08f);
+                animations.Animate(0.06f);
             }
             else if (isJumping)
             {
@@ -167,7 +167,7 @@ namespace GXPEngine
 
             if (Input.GetKeyDown(Key.SPACE) && canJump)
             {
-                fallingSpeed = -18;
+                fallingSpeed = -15;
                 isJumping = true;
                 canJump = false;
             }

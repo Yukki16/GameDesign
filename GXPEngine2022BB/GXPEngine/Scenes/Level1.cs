@@ -27,7 +27,9 @@ namespace GXPEngine.Scenes
             loader.autoInstance = true;
             loader.addColliders = true;
             loader.LoadTileLayers(0);
-            loader.LoadObjectGroups();
+            loader.addColliders = false;
+            loader.LoadObjectGroups(1);
+            loader.LoadObjectGroups(0);
             
             player = FindObjectOfType<Player>();
             //enemy = FindObjectOfType<Enemy>();
