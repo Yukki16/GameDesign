@@ -33,6 +33,7 @@ namespace GXPEngine
             enemyAnimation = new AnimationSprite("Enemies/" + enemyFileName, 5, 1, -1, false, false);
             enemyAnimation.SetOrigin(this.x + this.width / 2, this.y + this.width / 2 + 3);
             AddChild(enemyAnimation);
+            //Console.WriteLine(parent.FindObjectsOfType<Waypoint>());
         }
 
         void Update()

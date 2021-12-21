@@ -30,6 +30,8 @@ namespace GXPEngine.Scenes
             loader.addColliders = false;
             loader.LoadObjectGroups(1);
             loader.LoadObjectGroups(0);
+
+            //loader.map.Layers[0].GetTileArray(); // gives 1 or 0
             
             player = FindObjectOfType<Player>();
             //enemy = FindObjectOfType<Enemy>();
