@@ -14,9 +14,12 @@ namespace GXPEngine.Scenes
         //Map level;
         TiledLoader loader;
 
+        GameObject[,] gameObjects;
+
+
         public Level1()
         {
-            
+
         }
 
 
@@ -32,13 +35,36 @@ namespace GXPEngine.Scenes
             loader.LoadObjectGroups(0);
 
             //loader.map.Layers[0].GetTileArray(); // gives 1 or 0
-            
+
             player = FindObjectOfType<Player>();
             //enemy = FindObjectOfType<Enemy>();
             //Console.WriteLine(player);
-           // Console.WriteLine(player.x + "/" +player.y);
+            // Console.WriteLine(player.x + "/" +player.y);
+
+            gameObjects = new GameObject[loader.map.Width, loader.map.Height];
+
+
+
+            loader.OnObjectCreated += TileLoader.OnObjectCreated;
+
+            loader.addColliders = false;
+
+            loader.LoadTileLayers(0);
+
+            int childCount = game.GetChildCount();
+
+            loader.addColliders = true;
+
+            loader.OnTileCreated += Tileloader_OnTileCreated;
+
+            loader.LoadTileLayers(1);
+
+            loader.OnTileCreated -= Tileloader_OnTileCreated;
+
+            //Console.WriteLine(gameObjects);
         }
-       
+        
+
     }
 }
 
