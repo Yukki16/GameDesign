@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GXPEngine.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,14 +9,16 @@ namespace GXPEngine.Scenes
 {
     class Level1 : GameObject
     {
-        Enemy enemy;
+        //Enemy enemy;
         public Player player;
 
         //Map level;
         TiledLoader loader;
+        
 
         GameObject[,] gameObjects;
-
+        private List<GameObject> surroundingTiles = new List<GameObject>();
+        private Map map;
 
         public Level1()
         {
@@ -26,17 +29,17 @@ namespace GXPEngine.Scenes
         public void CreateLevel()
         {
             loader = new TiledLoader("Tiled/Level_1.tmx");
+            map = loader.map;
             loader.rootObject = this;
-            loader.autoInstance = true;
-            loader.addColliders = true;
-            loader.LoadTileLayers(0);
-            loader.addColliders = false;
-            loader.LoadObjectGroups(1);
-            loader.LoadObjectGroups(0);
+            //loader.addColliders = true;
+            //loader.LoadTileLayers(0);
+            //loader.addColliders = false;
+            //loader.LoadObjectGroups(1);
+            //loader.LoadObjectGroups(0);
 
             //loader.map.Layers[0].GetTileArray(); // gives 1 or 0
 
-            player = FindObjectOfType<Player>();
+            //player = FindObjectOfType<Player>();
             //enemy = FindObjectOfType<Enemy>();
             //Console.WriteLine(player);
             // Console.WriteLine(player.x + "/" +player.y);
@@ -45,11 +48,16 @@ namespace GXPEngine.Scenes
 
 
 
-            loader.OnObjectCreated += TileLoader.OnObjectCreated;
+            loader.OnObjectCreated += Tileloader_OnObjectCreated;
 
-            loader.addColliders = false;
+            loader.autoInstance = true;
+            //loader.addColliders = false;
+            loader.LoadObjectGroups();
+            //loader.LoadObjectGroups(0);
 
-            loader.LoadTileLayers(0);
+            //loader.addColliders = true;
+
+            //loader.LoadTileLayers(0);
 
             int childCount = game.GetChildCount();
 
@@ -57,14 +65,64 @@ namespace GXPEngine.Scenes
 
             loader.OnTileCreated += Tileloader_OnTileCreated;
 
-            loader.LoadTileLayers(1);
+            loader.LoadTileLayers(0);
 
             loader.OnTileCreated -= Tileloader_OnTileCreated;
 
-            //Console.WriteLine(gameObjects);
+            Console.WriteLine(gameObjects);
         }
-        
 
+        private void Tileloader_OnTileCreated(Sprite sprite, int row, int column)
+        {
+            gameObjects[column, row] = sprite;
+        }
+
+        private void Tileloader_OnObjectCreated(Sprite sprite, TiledObject obj)
+        {
+            if (sprite is Player p)
+            {
+                //need to make sure the player is not in the object layer
+                player = p;
+                player.SetLevel(this);
+                player.parent = this;
+            }
+        }
+
+        public List<GameObject> GetTiles(Sprite sprite)
+        {
+            surroundingTiles.Clear();
+
+            //get sprite extents and center
+            Vector2[] extents = sprite.GetExtents();
+            extents[0] = InverseTransformPoint(extents[0].x, extents[0].y);
+            extents[2] = InverseTransformPoint(extents[2].x, extents[2].y);
+            int tileSize = map.TileWidth;
+
+            Vector2 centerPointIndex = new Vector2((int)((extents[0].x + extents[2].x) / (2 * tileSize)), (int)((extents[0].y + extents[2].y) / (2 * tileSize)));
+            Vector2 topLeft = new Vector2(centerPointIndex.x - 1, centerPointIndex.y - 1);
+            topLeft.x = Mathf.Clamp(topLeft.x, 0, map.Width - 1);
+            topLeft.y = Mathf.Clamp(topLeft.y, 0, map.Height - 1);
+
+            Vector2 bottomRight = new Vector2(centerPointIndex.x + 1, centerPointIndex.y + 1);
+            bottomRight.x = Mathf.Clamp(bottomRight.x, 0, map.Width - 1);
+            bottomRight.y = Mathf.Clamp(bottomRight.y, 0, map.Height - 1);
+
+            for (int i = (int)topLeft.x; i <= bottomRight.x; i++)
+            {
+                for (int j = (int)topLeft.y; j <= bottomRight.y; j++)
+                {
+                    if (gameObjects[i, j] != null) surroundingTiles.Add(gameObjects[i, j]);
+                }
+            }
+
+            Gizmos.SetColor(0, 1, 0, 1);
+            Gizmos.DrawRectangle(centerPointIndex.x * tileSize + tileSize / 2, centerPointIndex.y * tileSize + tileSize / 2, tileSize, tileSize, this);
+
+            Gizmos.SetColor(1, 0, 0, 1);
+            Gizmos.DrawRectangle(centerPointIndex.x * tileSize + tileSize / 2, centerPointIndex.y * tileSize + tileSize / 2, tileSize * 3, tileSize * 3, this);
+            //System.Console.WriteLine(topLeft + " / " + centerPointIndex + " / " + bottomRight + "/" + surroundingTiles.Count);
+            return surroundingTiles;
+        }
     }
 }
 

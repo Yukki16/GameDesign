@@ -512,6 +512,7 @@ namespace TiledMapParser
                     if (OnTileCreated != null)
                         OnTileCreated(Tile, r, c);
 
+
                     Tile.SetFrame(frame - tileSet.FirstGId);
                     Tile.x = c * map.TileWidth;
                     // Adapting to Tiled's weird and inconsistent conventions again:

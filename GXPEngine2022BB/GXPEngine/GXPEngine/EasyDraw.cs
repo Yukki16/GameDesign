@@ -276,25 +276,22 @@ namespace GXPEngine
 		/// <param name="text">The text to be rendered</param>
 		/// <param name="x">The x coordinate to draw the text, using canvas (pixel) coordinates</param>
 		/// <param name="y">The y coordinate to draw the text, using canvas (pixel) coordinates</param>
-		public void Text(string text, float x, float y) 
+		public void Text(string text, float x, float y)
+
 		{
-			float twidth,theight;
-			TextDimensions (text, out twidth, out theight);
-			if (HorizontalTextAlign == CenterMode.Max) 
-			{
-				x -= twidth;
-			} else if (HorizontalTextAlign == CenterMode.Center) 
-			{ 
-				x -= twidth / 2;
-			}
-			if (VerticalTextAlign == CenterMode.Max) 
-			{
-				y -= theight;
-			} else if (VerticalTextAlign == CenterMode.Center) 
-			{
-				y -= theight / 2;
-			}
-			graphics.DrawString (text, font, brush, x, y); //left+BoundaryPadding/2,top+BoundaryPadding/2);
+
+			StringFormat sf = new StringFormat();
+
+			sf.Alignment = HorizontalTextAlign == CenterMode.Center ? StringAlignment.Center : (HorizontalTextAlign == CenterMode.Min ? StringAlignment.Near : StringAlignment.Far);
+
+			sf.LineAlignment = VerticalTextAlign == CenterMode.Center ? StringAlignment.Center : (VerticalTextAlign == CenterMode.Min ? StringAlignment.Near : StringAlignment.Far);
+
+			System.Console.WriteLine(sf.LineAlignment);
+
+			System.Console.WriteLine(sf.Alignment);
+
+			graphics.DrawString(text, font, brush, new RectangleF(0, 0, width, height), sf);
+
 		}
 
 		/// <summary>

@@ -15,7 +15,7 @@ namespace GXPEngine.Scenes
 
         public SceneManager()
         {
-           
+            
         }
 
         void Update()

@@ -1,4 +1,5 @@
 ﻿using GXPEngine.Core;
+using GXPEngine.Scenes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +36,7 @@ namespace GXPEngine
 
         private Sprite attackHitBox = new Sprite("2 GraveRobber/AttackHitBox.png");
 
-        //private Level1 level1 = new Level1();
+        private Level1 currentLevel;
         /*public Player(TiledObject obj) : base ("SteamMan.png")
         {
             Console.WriteLine("here");
@@ -56,10 +57,14 @@ namespace GXPEngine
             attackHitBox.SetOrigin(0, this.y + this.height / 2);
             animations.AddChild(attackHitBox);
 
+            
+           
         }
 
         public void Update()
         {
+            if (currentLevel == null)
+                return;
             PlayerAnimations();
             HorizontalMovement();
             VerticalMovement();
@@ -157,7 +162,8 @@ namespace GXPEngine
                 isRunning = false;
                 //xSpeed = 0;
             }
-            MoveUntilCollision(xSpeed, 0);
+            
+            MoveUntilCollision(xSpeed, 0, currentLevel.GetTiles(this));
             //this.x += xSpeed;
         }
 
@@ -172,7 +178,7 @@ namespace GXPEngine
                 canJump = false;
             }
 
-            if (MoveUntilCollision(0, fallingSpeed) != null)
+            if (MoveUntilCollision(0, fallingSpeed, currentLevel.GetTiles(this)) != null)
             {
                 fallingSpeed = 0;
                 isJumping = false;
@@ -242,6 +248,10 @@ namespace GXPEngine
             }
         }
         
+        public void SetLevel(Level1 _level)
+        {
+            currentLevel = _level;
+        }
     }
 
 
