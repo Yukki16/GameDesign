@@ -1,4 +1,5 @@
 ﻿using GXPEngine.Core;
+using GXPEngine.Scenes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,8 @@ namespace GXPEngine
         
 
         AnimationSprite enemyAnimation;
+        private Level1 currentLevel;
+
         public Enemy(TiledObject obj) : base("Enemies/Debug.png")
         {
             SetOrigin(width / 2, height / 2);
@@ -57,7 +60,7 @@ namespace GXPEngine
         void VerticalMovement()
         {
 
-            if (MoveUntilCollision(0, fallingSpeed) != null)
+            if (MoveUntilCollision(0, fallingSpeed, currentLevel.GetTiles(this)) != null)
             {
                 fallingSpeed = 0;
             }
@@ -102,5 +105,12 @@ namespace GXPEngine
                 Console.WriteLine(Time.time - damagedTimer);
             }
         }
+
+        public void SetLevel(Level1 _level)
+        {
+            currentLevel = _level;
+        }
     }
+
+
 }

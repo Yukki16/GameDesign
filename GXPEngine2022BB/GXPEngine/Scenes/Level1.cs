@@ -9,7 +9,7 @@ namespace GXPEngine.Scenes
 {
     class Level1 : GameObject
     {
-        //Enemy enemy;
+        Enemy enemy;
         public Player player;
 
         //Map level;
@@ -55,9 +55,9 @@ namespace GXPEngine.Scenes
             loader.LoadObjectGroups();
             //loader.LoadObjectGroups(0);
 
-            //loader.addColliders = true;
+            loader.addColliders = false;
 
-            //loader.LoadTileLayers(0);
+            loader.LoadTileLayers(0);
 
             int childCount = game.GetChildCount();
 
@@ -65,7 +65,7 @@ namespace GXPEngine.Scenes
 
             loader.OnTileCreated += Tileloader_OnTileCreated;
 
-            loader.LoadTileLayers(0);
+            loader.LoadTileLayers(1);
 
             loader.OnTileCreated -= Tileloader_OnTileCreated;
 
@@ -85,6 +85,13 @@ namespace GXPEngine.Scenes
                 player = p;
                 player.SetLevel(this);
                 player.parent = this;
+            }
+
+            if(sprite is Enemy e)
+            {
+                enemy = e;
+                enemy.SetLevel(this);
+                enemy.parent = this;
             }
         }
 
@@ -115,11 +122,11 @@ namespace GXPEngine.Scenes
                 }
             }
 
-            Gizmos.SetColor(0, 1, 0, 1);
+           /* Gizmos.SetColor(0, 1, 0, 1);
             Gizmos.DrawRectangle(centerPointIndex.x * tileSize + tileSize / 2, centerPointIndex.y * tileSize + tileSize / 2, tileSize, tileSize, this);
 
             Gizmos.SetColor(1, 0, 0, 1);
-            Gizmos.DrawRectangle(centerPointIndex.x * tileSize + tileSize / 2, centerPointIndex.y * tileSize + tileSize / 2, tileSize * 3, tileSize * 3, this);
+            Gizmos.DrawRectangle(centerPointIndex.x * tileSize + tileSize / 2, centerPointIndex.y * tileSize + tileSize / 2, tileSize * 3, tileSize * 3, this);*/
             //System.Console.WriteLine(topLeft + " / " + centerPointIndex + " / " + bottomRight + "/" + surroundingTiles.Count);
             return surroundingTiles;
         }
