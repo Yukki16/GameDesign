@@ -86,10 +86,10 @@
         },
         "Level_1.tmx": {
             "scale": 2,
-            "selectedLayer": 1,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 2800,
-                "y": 1199.75
+                "x": -29.5,
+                "y": 2111.5
             }
         },
         "Level_1.tmx#mellowautotiles": {

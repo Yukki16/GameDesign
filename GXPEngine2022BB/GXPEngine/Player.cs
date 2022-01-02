@@ -43,7 +43,7 @@ namespace GXPEngine
         }*/
 
 
-        public Player(TiledObject obj) : base(new Texture2D(15,32))
+        public Player(TiledObject obj) : base("2 GraveRobber/hitbox.png")
         {
             this.collider.isTrigger = true;
 

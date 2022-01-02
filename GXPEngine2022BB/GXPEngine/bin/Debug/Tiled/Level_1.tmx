@@ -175,7 +175,7 @@ To jump</text>
   </object>
  </objectgroup>
  <objectgroup id="2" name="Players &amp; Enemies">
-  <object id="1" type="GXPEngine.Player" x="49.333" y="2177.33" width="15" height="32"/>
+  <object id="1" type="GXPEngine.Player" x="55.333" y="2098.83" width="15" height="32"/>
   <object id="2" type="GXPEngine.Enemy" x="846.667" y="2177.33" width="30" height="30">
    <properties>
     <property name="EnemyFileName" value="blue_slime.png"/>

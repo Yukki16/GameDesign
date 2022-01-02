@@ -107,9 +107,9 @@ namespace GXPEngine.Scenes
             bottomRight.x = Mathf.Clamp(bottomRight.x, 0, map.Width - 1);
             bottomRight.y = Mathf.Clamp(bottomRight.y, 0, map.Height - 1);
 
-            for (int i = (int)topLeft.x; i <= bottomRight.x; i++)
+            for (int i = (int)topLeft.x - 1; i <= bottomRight.x + 1; i++)
             {
-                for (int j = (int)topLeft.y; j <= bottomRight.y; j++)
+                for (int j = (int)topLeft.y - 1; j <= bottomRight.y + 1; j++)
                 {
                     if (gameObjects[i, j] != null) surroundingTiles.Add(gameObjects[i, j]);
                 }
