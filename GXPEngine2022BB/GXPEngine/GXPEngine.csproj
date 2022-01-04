@@ -84,6 +84,7 @@
     <Compile Include="Player.cs" />
     <Compile Include="Scenes\MainMenu.cs" />
     <Compile Include="Scenes\SceneManager.cs" />
+    <Compile Include="Spike.cs" />
     <Compile Include="Waypoint.cs" />
   </ItemGroup>
 </Project>
