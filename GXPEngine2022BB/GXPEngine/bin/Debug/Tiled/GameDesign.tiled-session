@@ -85,18 +85,18 @@
             }
         },
         "Level_1.tmx": {
-            "scale": 1,
-            "selectedLayer": 0,
+            "scale": 2,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 2800,
-                "y": 1199.5
+                "x": 1287,
+                "y": 2200.5
             }
         },
         "Level_1.tmx#mellowautotiles": {
             "scaleInDock": 1
         },
         "Level_1.tmx#mellowplatformertileset": {
-            "scaleInDock": 1
+            "scaleInDock": 1.5
         },
         "MainMenu.tmx": {
             "scale": 2,

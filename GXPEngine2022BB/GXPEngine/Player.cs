@@ -234,6 +234,15 @@ namespace GXPEngine
                     takeDamageTimer = Time.time;
                     //Console.WriteLine(takeDamageTimer);
                 }
+
+                if(objects[i] is Spike && !gotDamaged)
+                {
+                    HP--;
+                    gotDamaged = true;
+                    takeDamageTimer = Time.time;
+                }
+
+                //Console.WriteLine(HP);
             }
 
             if(gotDamaged == true && Time.time - takeDamageTimer < 1000)

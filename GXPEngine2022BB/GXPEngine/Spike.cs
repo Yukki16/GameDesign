@@ -7,10 +7,11 @@ using TiledMapParser;
 
 namespace GXPEngine
 {
-    class Spike : Sprite
+    class Spike : AnimationSprite
     {
-        public Spike(TiledObject obj) : base(new Texture2D(16, 16))
+        public Spike(String name, int rows, int cols, TiledObject obj) : base(name, rows, cols, -1, true)
         {
+            this.collider.isTrigger = true;
             //comment
         }
     }
