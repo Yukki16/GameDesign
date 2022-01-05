@@ -10,6 +10,8 @@ namespace GXPEngine
 {
     class Enemy : Sprite
     {
+        private Player p;
+
         String enemyFileName;
         private float fallingSpeed = 0;
 
@@ -18,7 +20,10 @@ namespace GXPEngine
 
         private int HP = 3;
         private int xSpeed = 1;
-        
+
+        public int damage;
+
+        Items itemDropped;
 
         AnimationSprite enemyAnimation;
         private Level1 currentLevel;
@@ -30,13 +35,17 @@ namespace GXPEngine
 
             this.collider.isTrigger = true;
             enemyFileName = obj.GetStringProperty("EnemyFileName");
-            Console.WriteLine(enemyFileName);
+            //Console.WriteLine(enemyFileName);
 
+            damage = obj.GetIntProperty("Damage");
 
             enemyAnimation = new AnimationSprite("Enemies/" + enemyFileName, 5, 1, -1, false, false);
             enemyAnimation.SetOrigin(this.x + this.width / 2, this.y + this.width / 2 + 3);
             AddChild(enemyAnimation);
             //Console.WriteLine(parent.FindObjectsOfType<Waypoint>());
+
+            itemDropped = new Items(obj.GetIntProperty("ItemDropped"));
+            
         }
 
         void Update()
@@ -72,9 +81,27 @@ namespace GXPEngine
 
         void HorizontalMovement()
         {
-            if (MoveUntilCollision(xSpeed, 0) != null)
+            
+            if(this.y - p.y < 10 && (this.x - p.x <= 50 && this.x - p.x >= -50))
             {
-                xSpeed *= -1;
+                if (this.x - p.x > 0)
+                {
+                    xSpeed = -1;
+                }
+                else if (this.x - p.x < 0)
+                {
+                    xSpeed = 1;
+                }
+
+                MoveUntilCollision(xSpeed, 0, currentLevel.waypoints);
+
+            }else
+            {
+                if(MoveUntilCollision(xSpeed, 0, currentLevel.waypoints) != null)
+                {
+                    xSpeed *= -1;
+                }
+            }
                 if (xSpeed < 0)
                 {
                     enemyAnimation.Mirror(true, false);
@@ -83,13 +110,17 @@ namespace GXPEngine
                 {
                     enemyAnimation.Mirror(false, false);
                 }
-            }
         }
 
         void DestroyEnemy()
         {
             if (HP == 0)
+            {
+                parent.AddChild(itemDropped);
+                itemDropped.SetXY(this.x, this.y);
                 this.LateDestroy();
+
+            }
         }
 
         public void LowerHP(int damage)
@@ -99,18 +130,22 @@ namespace GXPEngine
 
         void ResumeMovement()
         {
+            enemyAnimation.SetColor(Mathf.Sin(Time.time / 100.0f), Mathf.Sin(Time.time / 100.0f), Mathf.Sin(Time.time / 100.0f));
             if (Time.time - damagedTimer > 1000)
             {
                 gotDamaged = false;
-                Console.WriteLine(Time.time - damagedTimer);
+                enemyAnimation.SetColor(1, 1, 1);
+                //Console.WriteLine(Time.time - damagedTimer);
             }
         }
 
         public void SetLevel(Level1 _level)
         {
             currentLevel = _level;
+            p = _level.FindObjectOfType<Player>();
         }
     }
 
 
 }
+

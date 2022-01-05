@@ -27,7 +27,7 @@ namespace GXPEngine
         private float attackTimer = 0f;
         private float takeDamageTimer = 0f;
 
-        private String characterName;
+        //private String characterName;
 
         private int HP = 6;
         private int damage = 1;
@@ -55,10 +55,7 @@ namespace GXPEngine
 
             attackHitBox.collider.isTrigger = true;
             attackHitBox.SetOrigin(0, this.y + this.height / 2);
-            animations.AddChild(attackHitBox);
-
-            
-           
+            animations.AddChild(attackHitBox); 
         }
 
         public void Update()
@@ -118,49 +115,60 @@ namespace GXPEngine
         {
             float xSpeed = 0;
 
-            // Needs refactoring!!!
+            // Needs refactoring!!! done :D
+            if (!isAttacking)
+            {
+                
 
-            if (Input.GetKey(Key.D) && Input.GetKey(Key.LEFT_SHIFT) && !isAttacking)
-            {
-                isWalking = false;
-                xSpeed += runningSpeed;
-                animations.Mirror(false, false);
-                if (attackHitBox.x < 0)
-                    attackHitBox.x = attackHitBox.x + attackHitBox.width;
-                isRunning = true;
-            }
-            else if (Input.GetKey(Key.D) && !isRunning && !isAttacking)
-            {
-                xSpeed += walkingSpeed;
-                animations.Mirror(false, false);
-                if (attackHitBox.x < 0)
-                    attackHitBox.x = attackHitBox.x + attackHitBox.width;
-                isWalking = true;
-            }
+                if (Input.GetKey(Key.D))
+                {
+                    if (Input.GetKey(Key.LEFT_SHIFT))
+                    {
+                        isRunning = true;
+                        isWalking = false;
+                    }
 
-            if (Input.GetKey(Key.A) && Input.GetKey(Key.LEFT_SHIFT) && !isAttacking)
-            {
-                isWalking = false;
-                xSpeed -= runningSpeed;
-                animations.Mirror(true, false);
-                if(attackHitBox.x > - attackHitBox.width)
-                    attackHitBox.x = attackHitBox.x - attackHitBox.width;
-                isRunning = true;
-            }
-            else if (Input.GetKey(Key.A) && !isRunning && !isAttacking)
-            {
-                xSpeed -= walkingSpeed;
-                animations.Mirror(true, false);
-                if (attackHitBox.x > -attackHitBox.width)
-                    attackHitBox.x = attackHitBox.x - attackHitBox.width;
-                isWalking = true;
+                    if (isRunning)
+                    {
+                        xSpeed += runningSpeed;
+                    }
+                    else
+                    {
+                        isWalking = true;
+                        xSpeed += walkingSpeed;
+                    } 
+                    animations.Mirror(false, false);
+                    if (attackHitBox.x < 0)
+                        attackHitBox.x = attackHitBox.x + attackHitBox.width;
+                }
+
+                if (Input.GetKey(Key.A))
+                {
+                    if (Input.GetKey(Key.LEFT_SHIFT))
+                    {
+                        isRunning = true;
+                        isWalking = false;
+                    }
+
+                    if (isRunning)
+                    {
+                        xSpeed -= runningSpeed;
+                    }
+                    else
+                    {
+                        isWalking = true;
+                        xSpeed -= walkingSpeed;
+                    }
+                    animations.Mirror(true, false);
+                    if (attackHitBox.x > -attackHitBox.width)
+                        attackHitBox.x = attackHitBox.x - attackHitBox.width;
+                }
             }
 
             if (Input.GetKeyUp(Key.A) || Input.GetKeyUp(Key.D)) //after releasing either of them it stops running/walking
             {
                 isWalking = false;
                 isRunning = false;
-                //xSpeed = 0;
             }
             
             MoveUntilCollision(xSpeed, 0, currentLevel.GetTiles(this));
@@ -227,21 +235,27 @@ namespace GXPEngine
             GameObject[] objects = this.GetCollisions(true, false);
             for (int i = 0; i < objects.Length; i++)
             {
-                if(objects[i] is Enemy && !gotDamaged) 
+                if(objects[i] is Enemy e && !gotDamaged) 
                 {
-                    HP--;
+                    HP = HP - e.damage;
                     gotDamaged = true;
                     takeDamageTimer = Time.time;
                     //Console.WriteLine(takeDamageTimer);
                 }
 
-                if(objects[i] is Spike && !gotDamaged)
+                if(objects[i] is Spike s && !gotDamaged)
                 {
-                    HP--;
+                    HP = HP - s.damage;
                     gotDamaged = true;
                     takeDamageTimer = Time.time;
                 }
 
+                if(objects[i] is Items item)
+                {
+                    HP += item.addHp;
+                    damage += item.addDamage;
+                    item.LateDestroy();
+                }
                 //Console.WriteLine(HP);
             }
 

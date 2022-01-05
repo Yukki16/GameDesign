@@ -88,8 +88,8 @@
             "scale": 2,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 1287,
-                "y": 2200.5
+                "x": 2800,
+                "y": 1199.75
             }
         },
         "Level_1.tmx#mellowautotiles": {
@@ -130,6 +130,7 @@
         "MainMenu.tmx"
     ],
     "project": "GameDesign.tiled-project",
+    "property.type": "int",
     "recentFiles": [
         "MainMenu.tmx",
         "Level_1.tmx",

@@ -19,6 +19,7 @@ namespace GXPEngine.Scenes
         GameObject[,] gameObjects;
         private List<GameObject> surroundingTiles = new List<GameObject>();
         private Map map;
+        public List<GameObject> waypoints = new List<GameObject>();
 
         public Level1()
         {
@@ -26,9 +27,9 @@ namespace GXPEngine.Scenes
         }
 
 
-        public void CreateLevel()
+        public void CreateLevel(String levelName)
         {
-            loader = new TiledLoader("Tiled/Level_1.tmx");
+            loader = new TiledLoader("Tiled/" + levelName + ".tmx");
             map = loader.map;
             loader.rootObject = this;
             //loader.addColliders = true;
@@ -92,6 +93,11 @@ namespace GXPEngine.Scenes
                 enemy = e;
                 enemy.SetLevel(this);
                 enemy.parent = this;
+            }
+
+            if(sprite is Waypoint w)
+            {
+                waypoints.Add(w);
             }
         }
 

@@ -31,18 +31,18 @@ namespace GXPEngine.Scenes
 
         public void LoadLevel(string currentLevel)
         {
-            if (currentLevel == "Level_1")
-            {
-                DestroyAll();
-                AddChild(level1);
-                level1.CreateLevel();
-            }
-            else if (currentLevel == "MainMenu")
-            {
+           if (currentLevel == "MainMenu")
+           {
                 DestroyAll();
                 AddChild(mainMenu);
                 mainMenu.CreateLevel();
-            }
+           }
+           else
+           {
+                DestroyAll();
+                AddChild(level1);
+                level1.CreateLevel(currentLevel);
+           }
 
             levelChild = this.FindObjectOfType<Player>();
         }

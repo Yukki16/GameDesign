@@ -11,7 +11,7 @@ namespace GXPEngine
         public Waypoint(String name, int rows, int cols, TiledObject obj) : base(name, rows, cols, -1, false)
         {
             visible = false;
-            Console.WriteLine("waypoint");
+            //Console.WriteLine("waypoint");
         }
     }
 }
