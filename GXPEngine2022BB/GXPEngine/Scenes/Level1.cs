@@ -79,8 +79,8 @@ namespace GXPEngine.Scenes
                 player.SetLevel(this);
                 player.parent = this;
 
-                /*healthUi = new HealthUI(player);
-                game.AddChild(healthUi);*/
+                healthUi = new HealthUI(player);
+                game.AddChild(healthUi);
             }
 
             if(sprite is Enemy e)

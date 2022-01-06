@@ -12,7 +12,7 @@ namespace GXPEngine
         private Sprite halfHeart;
         private Sprite noHeart;
 
-        private SpriteBatch health = new SpriteBatch;
+        private Pivot health = new Pivot();
 
         Player player;
 
@@ -25,16 +25,25 @@ namespace GXPEngine
 
             player = p;
             HP = player.returnHP();
-            
-            for(int i = 0; i < HP / 2; i++)
+
+            for (int i = 0; i < HP / 2; i++)
             {
-                health.AddChild(fullHeart);
-                
+                health.AddChild(new Sprite("UI/HP/Player/heart_full_16x16.png"));
+            }
+
+            List<GameObject> children = health.GetChildren();
+
+
+            int j = 0;
+            foreach (GameObject child in children)
+            {
+                child.SetXY(j * fullHeart.width, 0);
+                j++;
             }
 
             this.AddChild(health);
         }
 
-        
+
     }
 }
