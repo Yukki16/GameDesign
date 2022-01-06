@@ -7,7 +7,7 @@ namespace GXPEngine.Scenes
 {
     class SceneManager : GameObject
     {
-        private Level1 level1 = new Level1();
+        private Scenes.Level1 level1 = new Level1();
         private MainMenu mainMenu = new MainMenu();
         public String currentLevel;
 
@@ -40,6 +40,7 @@ namespace GXPEngine.Scenes
            else
            {
                 DestroyAll();
+                //level1 = new Level1();
                 AddChild(level1);
                 level1.CreateLevel(currentLevel);
            }

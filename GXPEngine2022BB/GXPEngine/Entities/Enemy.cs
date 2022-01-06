@@ -18,7 +18,7 @@ namespace GXPEngine
         public Boolean gotDamaged = false;
         public float damagedTimer = 0f;
 
-        private int HP = 3;
+        private int HP;
         private int xSpeed = 1;
 
         public int damage;
@@ -38,6 +38,7 @@ namespace GXPEngine
             //Console.WriteLine(enemyFileName);
 
             damage = obj.GetIntProperty("Damage");
+            HP = obj.GetIntProperty("HP");
 
             enemyAnimation = new AnimationSprite("Enemies/" + enemyFileName, 5, 1, -1, false, false);
             enemyAnimation.SetOrigin(this.x + this.width / 2, this.y + this.width / 2 + 3);
@@ -82,7 +83,7 @@ namespace GXPEngine
         void HorizontalMovement()
         {
             
-            if(this.y - p.y < 10 && (this.x - p.x <= 50 && this.x - p.x >= -50))
+            if(this.y - p.y < 50 && (this.x - p.x <= 150 && this.x - p.x >= -150))
             {
                 if (this.x - p.x > 0)
                 {

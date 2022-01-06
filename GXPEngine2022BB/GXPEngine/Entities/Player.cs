@@ -275,6 +275,11 @@ namespace GXPEngine
         {
             currentLevel = _level;
         }
+
+        public int returnHP()
+        {
+            return HP;
+        }
     }
 
 

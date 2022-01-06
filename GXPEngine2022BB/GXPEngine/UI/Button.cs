@@ -9,14 +9,15 @@ namespace GXPEngine
 {
     class Button : Sprite
     {
-        GameObject myGame;
+        //GameObject myGame;
         String levelName;
-        Scenes.SceneManager sceneManager = new Scenes.SceneManager();
+        Scenes.SceneManager sceneManager;//= new Scenes.SceneManager();
 
         public Button(TiledObject obj) : base("Buttons/" + obj.GetStringProperty("SpriteName"))
         {
             levelName = obj.GetStringProperty("Load");
-            myGame = game.FindObjectOfType<MyGame>();
+
+            sceneManager = parent.parent.parent.FindObjectOfType<Scenes.SceneManager>();
             //Console.WriteLine(myGame);
         }
 
@@ -31,11 +32,11 @@ namespace GXPEngine
                     if (Input.GetMouseButtonUp(0))
                     {
                         
-                        Console.WriteLine("pressed");
-                        parent.parent.parent.RemoveChild(parent.parent); //removes the scene manager from MyGame, I can't believe it actually works
-                                                                        //Button > MainMenu > SceneManager > MyGame
+                        //Console.WriteLine("pressed");
+                        //parent.parent.parent.RemoveChild(parent.parent); //removes the scene manager from MyGame, I can't believe it actually works
+                                                                        //Button > MainMenu > SceneManager > MyGame   //why the fuck do I need this?!
                         sceneManager.LoadLevel(levelName);
-                        myGame.AddChild(sceneManager);
+                        //myGame.AddChild(sceneManager);
                     }
                 }
                 else

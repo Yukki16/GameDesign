@@ -21,6 +21,7 @@ namespace GXPEngine.Scenes
         private Map map;
         public List<GameObject> waypoints = new List<GameObject>();
 
+        HealthUI healthUi;
         public Level1()
         {
 
@@ -32,18 +33,7 @@ namespace GXPEngine.Scenes
             loader = new TiledLoader("Tiled/" + levelName + ".tmx");
             map = loader.map;
             loader.rootObject = this;
-            //loader.addColliders = true;
-            //loader.LoadTileLayers(0);
-            //loader.addColliders = false;
-            //loader.LoadObjectGroups(1);
-            //loader.LoadObjectGroups(0);
-
-            //loader.map.Layers[0].GetTileArray(); // gives 1 or 0
-
-            //player = FindObjectOfType<Player>();
-            //enemy = FindObjectOfType<Enemy>();
-            //Console.WriteLine(player);
-            // Console.WriteLine(player.x + "/" +player.y);
+            
 
             gameObjects = new GameObject[loader.map.Width, loader.map.Height];
 
@@ -70,7 +60,9 @@ namespace GXPEngine.Scenes
 
             loader.OnTileCreated -= Tileloader_OnTileCreated;
 
-            Console.WriteLine(gameObjects);
+            //Console.WriteLine(gameObjects);
+
+            
         }
 
         private void Tileloader_OnTileCreated(Sprite sprite, int row, int column)
@@ -86,6 +78,9 @@ namespace GXPEngine.Scenes
                 player = p;
                 player.SetLevel(this);
                 player.parent = this;
+
+                /*healthUi = new HealthUI(player);
+                game.AddChild(healthUi);*/
             }
 
             if(sprite is Enemy e)
