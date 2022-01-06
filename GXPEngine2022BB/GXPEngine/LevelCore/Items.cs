@@ -12,7 +12,7 @@ namespace GXPEngine
         public int addDamage;
         public Items(int itemNr) : base("Items/items.png", 13, 15, -1, false, true)
         {
-            Console.WriteLine("item");
+            //Console.WriteLine("item");
             this.SetCycle(itemNr, 1);
             this.collider.isTrigger = true;
             AddStats(itemNr);

@@ -286,9 +286,9 @@ namespace GXPEngine
 
 			sf.LineAlignment = VerticalTextAlign == CenterMode.Center ? StringAlignment.Center : (VerticalTextAlign == CenterMode.Min ? StringAlignment.Near : StringAlignment.Far);
 
-			System.Console.WriteLine(sf.LineAlignment);
+			//System.Console.WriteLine(sf.LineAlignment);
 
-			System.Console.WriteLine(sf.Alignment);
+			//System.Console.WriteLine(sf.Alignment);
 
 			graphics.DrawString(text, font, brush, new RectangleF(0, 0, width, height), sf);
 

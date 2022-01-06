@@ -21,7 +21,7 @@ namespace GXPEngine.Scenes
         private Map map;
         public List<GameObject> waypoints = new List<GameObject>();
 
-        HealthUI healthUi;
+        //HealthUI healthUi;
         public Level1()
         {
 
@@ -79,8 +79,7 @@ namespace GXPEngine.Scenes
                 player.SetLevel(this);
                 player.parent = this;
 
-                healthUi = new HealthUI(player);
-                game.AddChild(healthUi);
+                
             }
 
             if(sprite is Enemy e)

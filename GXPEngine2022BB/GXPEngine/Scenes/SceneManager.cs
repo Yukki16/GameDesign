@@ -11,7 +11,9 @@ namespace GXPEngine.Scenes
         private MainMenu mainMenu = new MainMenu();
         public String currentLevel;
 
-        GameObject levelChild; // refers to the only child this class should have and has the player in it so I can get the x and y value to do the scrolling
+        HealthUI healthUi;
+
+        Player player;
 
         public SceneManager()
         {
@@ -20,10 +22,10 @@ namespace GXPEngine.Scenes
 
         void Update()
         {
-            if(levelChild != null)
+            if(player != null)
             {
-                this.x = -this.levelChild.x + game.width / 2;
-                this.y = -this.levelChild.y + 2 * game.height / 3;
+                this.x = -this.player.x + game.width / 2;
+                this.y = -this.player.y + 2 * game.height / 3;
             }
 
         }
@@ -45,7 +47,14 @@ namespace GXPEngine.Scenes
                 level1.CreateLevel(currentLevel);
            }
 
-            levelChild = this.FindObjectOfType<Player>();
+            player = this.FindObjectOfType<Player>();
+            if (player != null)
+            {
+                healthUi = new HealthUI(player);
+                parent.AddChild(healthUi);
+            }
+
+            
         }
 
         private void DestroyAll()
