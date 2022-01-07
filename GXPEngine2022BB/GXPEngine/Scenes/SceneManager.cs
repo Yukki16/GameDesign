@@ -52,6 +52,7 @@ namespace GXPEngine.Scenes
             {
                 healthUi = new HealthUI(player);
                 parent.AddChild(healthUi);
+                player.healthUI = this.healthUi;
             }
 
             
@@ -61,6 +62,13 @@ namespace GXPEngine.Scenes
         {
             List<GameObject> children = GetChildren();
             foreach (GameObject child in children)
+            { 
+                child.Destroy();
+            }
+
+            HealthUI[] UI = parent.FindObjectsOfType<HealthUI>();
+            
+            foreach (HealthUI child in UI)
             { 
                 child.Destroy();
             }

@@ -37,6 +37,8 @@ namespace GXPEngine
         private Sprite attackHitBox = new Sprite("2 GraveRobber/AttackHitBox.png");
 
         private Level1 currentLevel;
+
+        public HealthUI healthUI;
         /*public Player(TiledObject obj) : base ("SteamMan.png")
         {
             Console.WriteLine("here");
@@ -55,7 +57,9 @@ namespace GXPEngine
 
             attackHitBox.collider.isTrigger = true;
             attackHitBox.SetOrigin(0, this.y + this.height / 2);
-            animations.AddChild(attackHitBox); 
+            animations.AddChild(attackHitBox);
+
+            //healthUI = game.FindObjectOfType<HealthUI>();
         }
 
         public void Update()
@@ -241,6 +245,7 @@ namespace GXPEngine
                     gotDamaged = true;
                     takeDamageTimer = Time.time;
                     //Console.WriteLine(takeDamageTimer);
+                    healthUI.UpdateHealth();
                 }
 
                 if(objects[i] is Spike s && !gotDamaged)
@@ -248,6 +253,7 @@ namespace GXPEngine
                     HP = HP - s.damage;
                     gotDamaged = true;
                     takeDamageTimer = Time.time;
+                    healthUI.UpdateHealth();
                 }
 
                 if(objects[i] is Items item)
