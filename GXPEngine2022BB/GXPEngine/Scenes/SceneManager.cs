@@ -64,6 +64,8 @@ namespace GXPEngine.Scenes
                 player.healthUI = this.healthUi;
             }
 
+            this.x = 0;
+            this.y = 0;
             
         }
 
