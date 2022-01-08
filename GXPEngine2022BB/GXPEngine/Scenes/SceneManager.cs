@@ -31,7 +31,7 @@ namespace GXPEngine.Scenes
 
             if (Input.GetKeyDown(Key.Q))
             {
-                this.LoadLevel("Level_1");
+                this.LoadLevel("LevelSelecter");
             }
 
         }
@@ -43,23 +43,24 @@ namespace GXPEngine.Scenes
            {
                 RemoveAllChildren();
                 mainMenu = new MainMenu();
-                LateAddChild(mainMenu);
                 mainMenu.CreateLevel(currentLevel);
+                AddChild(mainMenu);
                 //Console.WriteLine(mainMenu == null);
+                
            }
            else
            {
                 RemoveAllChildren();
                 level1 = new Level1();
-                AddChild(level1);
                 level1.CreateLevel(currentLevel);
+                AddChild(level1);
            }
 
             player = this.FindObjectOfType<Player>();
             if (player != null)
             {
                 healthUi = new HealthUI(player);
-                parent.LateAddChild(healthUi);
+                parent.AddChild(healthUi);
                 player.healthUI = this.healthUi;
             }
 
@@ -69,6 +70,7 @@ namespace GXPEngine.Scenes
         private void RemoveAllChildren()
         {
             List<GameObject> children = this.GetChildren();
+            //Console.WriteLine(children.Count);
             foreach (GameObject child in children)
             {
                 //Console.WriteLine("destroied");

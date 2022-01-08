@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Level_1.tmx",
+    "activeFile": "Level_2.tmx",
     "expandedProjectPaths": [
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
@@ -89,7 +89,7 @@
             "selectedLayer": 1,
             "viewCenter": {
                 "x": 2800,
-                "y": 1199.6666666666665
+                "y": 1199.3333333333333
             }
         },
         "LevelSelecter.tmx#other btn copy 2": {
@@ -100,8 +100,8 @@
             "scale": 2,
             "selectedLayer": 7,
             "viewCenter": {
-                "x": 747,
-                "y": 2208
+                "x": 2799.5,
+                "y": 1199.25
             }
         },
         "Level_1.tmx#mellowautotiles": {
@@ -109,6 +109,14 @@
         },
         "Level_1.tmx#mellowplatformertileset": {
             "scaleInDock": 1.5
+        },
+        "Level_2.tmx": {
+            "scale": 0.18269230769230768,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 2797.0526315789475,
+                "y": 1204.2105263157894
+            }
         },
         "MainMenu.tmx": {
             "scale": 1.5,
@@ -140,14 +148,16 @@
     "openFiles": [
         "Level_1.tmx",
         "MainMenu.tmx",
-        "LevelSelecter.tmx"
+        "LevelSelecter.tmx",
+        "Level_2.tmx"
     ],
     "project": "GameDesign.tiled-project",
     "property.type": "string",
     "recentFiles": [
-        "LevelSelecter.tmx",
-        "MainMenu.tmx",
         "Level_1.tmx",
+        "MainMenu.tmx",
+        "LevelSelecter.tmx",
+        "Level_2.tmx",
         "C:/The folder of all/Uni stuff/First year/sez2/Game Design/GXPEngine2022BB/GXPEngine/bin/Debug/Terrain/mapTest_1.tmx",
         "C:/The folder of all/Uni stuff/First year/sez2/Game Design/GXPEngine2022BB/GXPEngine/bin/Debug/Terrain/MainMenu.tmx",
         "C:/The folder of all/Uni stuff/First year/sez2/Game Design/GXPEngine2022BB/GXPEngine/bin/Debug/Terrain/mellowplatformertileset.tsx",
@@ -155,8 +165,7 @@
         "C:/The folder of all/Uni stuff/First year/sez2/Game Design/GXPEngine2022BB/GXPEngine/bin/Debug/Terrain/mellowautotiles.tsx",
         "C:/The folder of all/Uni stuff/First year/sez2/Game Design/GXPEngine2022BB/GXPEngine/bin/Debug/Terrain/spritesheet.tsx",
         "C:/The folder of all/Uni stuff/First year/sez2/Game Design/GXPEngine2022BB/GXPEngine/bin/Debug/Terrain/mapTest_2.tmx",
-        "C:/The folder of all/Uni stuff/First year/sez2/Game Design/GXPEngine2022BB/mapTest_1.tmx",
-        "C:/The folder of all/Uni stuff/First year/sez2/Game Design/GXPEngine2022BB/GXPEngine/bin/Debug/Terrain/Dirt.tsx"
+        "C:/The folder of all/Uni stuff/First year/sez2/Game Design/GXPEngine2022BB/mapTest_1.tmx"
     ],
     "textEdit.monospace": true,
     "tileset.embedInMap": true,
