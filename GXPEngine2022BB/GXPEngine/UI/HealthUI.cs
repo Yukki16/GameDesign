@@ -9,8 +9,6 @@ namespace GXPEngine
     class HealthUI : GameObject
     {
         private Sprite fullHeart;
-        private Sprite halfHeart;
-        private Sprite noHeart;
 
         private Sprite[] hearts;
         private Pivot health = new Pivot();
@@ -22,13 +20,13 @@ namespace GXPEngine
         private int maxHP;
         public HealthUI(Player p)
         {
+            
             fullHeart = new Sprite("UI/HP/Player/heart_full_16x16.png");
-            halfHeart = new Sprite("UI/HP/Player/heart_half_16x16.png");
-            noHeart = new Sprite("UI/HP/Player/heart_empty_16x16.png");
+            
 
             player = p;
-            HP = player.returnHP();
-            maxHP = HP;
+            HP = player.HP;
+            maxHP = player.maxHP;
 
             hearts = new Sprite[HP];
 
@@ -55,12 +53,13 @@ namespace GXPEngine
 
             this.AddChild(health);
 
-            Console.WriteLine(this.GetChildCount());
+            //Console.WriteLine(this.GetChildCount());
         }
 
         public void UpdateHealth()
         {
-            HP = player.returnHP();
+            HP = player.HP;
+            maxHP = player.maxHP;
 
             List<GameObject> children = health.GetChildren();
 
@@ -102,7 +101,7 @@ namespace GXPEngine
             }
 
 
-            Console.WriteLine(this.GetChildCount());
+            //Console.WriteLine(this.GetChildCount());
         }
     }
 }

@@ -47,6 +47,7 @@ namespace GXPEngine
 
             itemDropped = new Items(obj.GetIntProperty("ItemDropped"));
             
+            
         }
 
         void Update()
@@ -117,6 +118,7 @@ namespace GXPEngine
         {
             if (HP == 0)
             {
+                itemDropped.AddPlayer(this.p);
                 parent.AddChild(itemDropped);
                 itemDropped.SetXY(this.x, this.y);
                 this.LateDestroy();

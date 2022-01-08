@@ -18,6 +18,7 @@ namespace GXPEngine
         private Boolean isRunning = false;
         private Boolean isAttacking = false;
         private Boolean gotDamaged = false;
+        public Boolean hasKey = false;
 
         //private Boolean isStanding = false;
 
@@ -26,11 +27,13 @@ namespace GXPEngine
         private int runningSpeed = 6;
         private float attackTimer = 0f;
         private float takeDamageTimer = 0f;
+        private float timer = 0f;
 
         //private String characterName;
 
-        private int HP = 6;
-        private int damage = 1;
+        public int HP = 6;
+        public int damage = 1;
+        public int maxHP = 6;
 
         private AnimationSprite animations;
 
@@ -39,10 +42,12 @@ namespace GXPEngine
         private Level1 currentLevel;
 
         public HealthUI healthUI;
+        //private SceneManager sceneManager;
+
         /*public Player(TiledObject obj) : base ("SteamMan.png")
-        {
-            Console.WriteLine("here");
-        }*/
+{
+Console.WriteLine("here");
+}*/
 
 
         public Player(TiledObject obj) : base(new Texture2D(15,32))
@@ -57,8 +62,10 @@ namespace GXPEngine
 
             attackHitBox.collider.isTrigger = true;
             attackHitBox.SetOrigin(0, this.y + this.height / 2);
+            attackHitBox.alpha = 0;
             animations.AddChild(attackHitBox);
 
+            
             //healthUI = game.FindObjectOfType<HealthUI>();
         }
 
@@ -70,7 +77,7 @@ namespace GXPEngine
             HorizontalMovement();
             VerticalMovement();
             Attack();
-            GetHurt();
+            Collisions();
         }
 
         private void PlayerAnimations()
@@ -234,7 +241,7 @@ namespace GXPEngine
             }
         }
 
-        void GetHurt()
+        void Collisions()
         {
             GameObject[] objects = this.GetCollisions(true, false);
             for (int i = 0; i < objects.Length; i++)
@@ -258,11 +265,25 @@ namespace GXPEngine
 
                 if(objects[i] is Items item)
                 {
-                    HP += item.addHp;
-                    damage += item.addDamage;
-                    item.LateDestroy();
+                    item.PickUp();
                 }
                 //Console.WriteLine(HP);
+
+                if(objects[i] is Gate g )
+                {
+                    if (Input.GetKeyDown(Key.E) && hasKey)
+                    {
+                        g.OpenThePortal();
+                        hasKey = false;
+                        timer = Time.time;
+                    }
+
+                    if(g.portalopened && Input.GetKeyDown(Key.E) && Time.time - timer > 1000)
+                    {
+                        g.FinishLevel();
+                    }
+
+                }
             }
 
             if(gotDamaged == true && Time.time - takeDamageTimer < 1000)
@@ -282,10 +303,6 @@ namespace GXPEngine
             currentLevel = _level;
         }
 
-        public int returnHP()
-        {
-            return HP;
-        }
     }
 
 

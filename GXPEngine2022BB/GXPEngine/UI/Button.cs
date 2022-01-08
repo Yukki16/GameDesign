@@ -29,7 +29,7 @@ namespace GXPEngine
                 {
 
                     this.SetColor(1, 1, 1);
-                    if (Input.GetMouseButtonUp(0))
+                    if (Input.GetMouseButtonDown(0))
                     {
                         
                         //Console.WriteLine("pressed");

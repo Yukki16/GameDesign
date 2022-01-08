@@ -50,13 +50,17 @@ namespace GXPEngine.Scenes
 
             loader.LoadTileLayers(0);
 
+            loader.addColliders = false;
+
+            loader.LoadTileLayers(1);
+
             int childCount = game.GetChildCount();
 
             loader.addColliders = true;
 
             loader.OnTileCreated += Tileloader_OnTileCreated;
 
-            loader.LoadTileLayers(1);
+            loader.LoadTileLayers(2);
 
             loader.OnTileCreated -= Tileloader_OnTileCreated;
 
@@ -92,6 +96,17 @@ namespace GXPEngine.Scenes
             if(sprite is Waypoint w)
             {
                 waypoints.Add(w);
+            }
+
+            if(sprite is Gate gate)
+            {
+                gate.AddPlayer(this.player);
+            }
+
+            if(sprite is Items item)
+            {
+                item.AddPlayer(this.player);
+                //Console.WriteLine("added player");
             }
         }
 

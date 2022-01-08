@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LevelCore\Gate.cs" />
     <Compile Include="UI\HealthUI.cs" />
     <Compile Include="UI\Button.cs" />
     <Compile Include="Entities\Enemy.cs" />

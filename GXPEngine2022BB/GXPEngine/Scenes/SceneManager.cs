@@ -11,6 +11,7 @@ namespace GXPEngine.Scenes
         private MainMenu mainMenu = new MainMenu();
         public String currentLevel;
 
+
         HealthUI healthUi;
 
         Player player;
@@ -28,21 +29,28 @@ namespace GXPEngine.Scenes
                 this.y = -this.player.y + 2 * game.height / 3;
             }
 
+            if (Input.GetKeyDown(Key.Q))
+            {
+                this.LoadLevel("Level_1");
+            }
+
         }
 
 
         public void LoadLevel(string currentLevel)
         {
-           if (currentLevel == "MainMenu")
+           if (currentLevel == "MainMenu" || currentLevel == "LevelSelecter")
            {
-                DestroyAll();
-                AddChild(mainMenu);
-                mainMenu.CreateLevel();
+                RemoveAllChildren();
+                mainMenu = new MainMenu();
+                LateAddChild(mainMenu);
+                mainMenu.CreateLevel(currentLevel);
+                //Console.WriteLine(mainMenu == null);
            }
            else
            {
-                DestroyAll();
-                //level1 = new Level1();
+                RemoveAllChildren();
+                level1 = new Level1();
                 AddChild(level1);
                 level1.CreateLevel(currentLevel);
            }
@@ -51,26 +59,30 @@ namespace GXPEngine.Scenes
             if (player != null)
             {
                 healthUi = new HealthUI(player);
-                parent.AddChild(healthUi);
+                parent.LateAddChild(healthUi);
                 player.healthUI = this.healthUi;
             }
 
             
         }
 
-        private void DestroyAll()
+        private void RemoveAllChildren()
         {
-            List<GameObject> children = GetChildren();
+            List<GameObject> children = this.GetChildren();
             foreach (GameObject child in children)
-            { 
-                child.Destroy();
+            {
+                //Console.WriteLine("destroied");
+                //Console.WriteLine(mainMenu == null);
+                //Console.WriteLine(level1 == null);
+                child.Remove();
             }
-
-            HealthUI[] UI = parent.FindObjectsOfType<HealthUI>();
             
+            HealthUI[] UI = game.FindObjectsOfType<HealthUI>();
+            
+            if(UI != null)
             foreach (HealthUI child in UI)
             { 
-                child.Destroy();
+                child.Remove();
             }
         }
     }

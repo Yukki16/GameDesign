@@ -8,24 +8,25 @@ namespace GXPEngine.Scenes
 {
     class MainMenu : GameObject
     {
-        GXPEngine.Button button;
+        //GXPEngine.Button button;
         TiledLoader loader;
         public MainMenu() : base()
         {
-            
+            //Console.WriteLine("created");
         }
 
-        public void CreateLevel()
+        public void CreateLevel(String menuName)
         {
-            loader = new TiledLoader("Tiled/MainMenu.tmx");
+            //Console.WriteLine("created");
+            loader = new TiledLoader("Tiled/" + menuName + ".tmx");
             loader.rootObject = this;
             loader.autoInstance = true;
             loader.LoadImageLayers(0);
             loader.addColliders = true;
-            loader.LoadTileLayers(0);
+            //loader.LoadTileLayers(0);
             loader.LoadObjectGroups();
 
-            button = FindObjectOfType<Button>();
+            //button = FindObjectOfType<Button>();
             //player = FindObjectOfType<Player>();
             //Console.WriteLine(player);
             // Console.WriteLine(player.x + "/" +player.y);
