@@ -14,7 +14,7 @@ namespace GXPEngine.Scenes
 
         //Map level;
         TiledLoader loader;
-        
+        public String levelName;
 
         GameObject[,] gameObjects;
         private List<GameObject> surroundingTiles = new List<GameObject>();

@@ -42,14 +42,11 @@ namespace GXPEngine
         private Level1 currentLevel;
 
         public HealthUI healthUI;
-        //private SceneManager sceneManager;
 
-        /*public Player(TiledObject obj) : base ("SteamMan.png")
-{
-Console.WriteLine("here");
-}*/
+        public SceneManager sceneManager;
 
-
+        
+        
         public Player(TiledObject obj) : base(new Texture2D(15,32))
         {
             this.collider.isTrigger = true;

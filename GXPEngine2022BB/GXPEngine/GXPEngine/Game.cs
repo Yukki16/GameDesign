@@ -91,6 +91,7 @@ namespace GXPEngine
 		/// </param>
 		public Game (int pWidth, int pHeight, bool pFullScreen, bool pVSync = true, int pRealWidth=-1, int pRealHeight=-1, bool pPixelArt=false) : base()
 		{
+			
 			if (pRealWidth <= 0) {
 				pRealWidth = pWidth;
 			}

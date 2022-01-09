@@ -28,7 +28,7 @@ namespace GXPEngine
             HP = player.HP;
             maxHP = player.maxHP;
 
-            hearts = new Sprite[HP];
+            hearts = new Sprite[maxHP];
 
             for (int i = 0; i < HP / 2; i++)
             {
@@ -60,6 +60,7 @@ namespace GXPEngine
         {
             HP = player.HP;
             maxHP = player.maxHP;
+            hearts = new Sprite[maxHP];
 
             List<GameObject> children = health.GetChildren();
 

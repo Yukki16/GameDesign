@@ -54,6 +54,7 @@ namespace GXPEngine.Scenes
                 level1 = new Level1();
                 level1.CreateLevel(currentLevel);
                 AddChild(level1);
+                level1.levelName = this.currentLevel;
            }
 
             player = this.FindObjectOfType<Player>();
@@ -62,6 +63,7 @@ namespace GXPEngine.Scenes
                 healthUi = new HealthUI(player);
                 parent.AddChild(healthUi);
                 player.healthUI = this.healthUi;
+                player.sceneManager = this;
             }
 
             this.x = 0;

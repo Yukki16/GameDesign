@@ -10,8 +10,8 @@
   <object id="43" type="GXPEngine.Gate" x="3520" y="2192" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="2" name="Players &amp; Enemies">
-  <object id="1" type="GXPEngine.Player" x="646.667" y="2178.67" width="15" height="32"/>
-  <object id="2" type="GXPEngine.Enemy" x="1618.67" y="2185.33" width="30" height="30">
+  <object id="1" type="GXPEngine.Player" x="672" y="2192" width="15" height="32"/>
+  <object id="2" type="GXPEngine.Enemy" x="1664" y="2192" width="30" height="30">
    <properties>
     <property name="Damage" type="int" value="1"/>
     <property name="EnemyFileName" value="blue_slime.png"/>
