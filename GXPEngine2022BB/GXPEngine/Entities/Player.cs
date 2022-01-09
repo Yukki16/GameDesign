@@ -28,6 +28,8 @@ namespace GXPEngine
         private float attackTimer = 0f;
         private float takeDamageTimer = 0f;
         private float timer = 0f;
+        public float xSpeed;
+
 
         //private String characterName;
 
@@ -121,8 +123,7 @@ namespace GXPEngine
 
         void HorizontalMovement()
         {
-            float xSpeed = 0;
-
+            xSpeed = 0;
             // Needs refactoring!!! done :D
             if (!isAttacking)
             {
@@ -281,6 +282,13 @@ namespace GXPEngine
                     }
 
                 }
+
+                if(objects[i] is PushableObject po)
+                {
+                    po.HorizontalMovement();
+
+                    //Console.WriteLine("do");
+                }
             }
 
             if(gotDamaged == true && Time.time - takeDamageTimer < 1000)
@@ -299,7 +307,6 @@ namespace GXPEngine
         {
             currentLevel = _level;
         }
-
     }
 
 

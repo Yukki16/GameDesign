@@ -108,6 +108,11 @@ namespace GXPEngine.Scenes
                 item.AddPlayer(this.player);
                 //Console.WriteLine("added player");
             }
+
+            if(sprite is PushableObject po)
+            {
+                po.SetVars(this, this.player);
+            }
         }
 
         public List<GameObject> GetTiles(Sprite sprite)
@@ -141,8 +146,8 @@ namespace GXPEngine.Scenes
             Gizmos.DrawRectangle(centerPointIndex.x * tileSize + tileSize / 2, centerPointIndex.y * tileSize + tileSize / 2, tileSize, tileSize, this);
 
             Gizmos.SetColor(1, 0, 0, 1);
-            Gizmos.DrawRectangle(centerPointIndex.x * tileSize + tileSize / 2, centerPointIndex.y * tileSize + tileSize / 2, tileSize * 3, tileSize * 3, this);*/
-            //System.Console.WriteLine(topLeft + " / " + centerPointIndex + " / " + bottomRight + "/" + surroundingTiles.Count);
+            Gizmos.DrawRectangle(centerPointIndex.x * tileSize + tileSize / 2, centerPointIndex.y * tileSize + tileSize / 2, tileSize * 3, tileSize * 3, this);
+            //System.Console.WriteLine(topLeft + " / " + centerPointIndex + " / " + bottomRight + "/" + surroundingTiles.Count);*/
             return surroundingTiles;
         }
     }

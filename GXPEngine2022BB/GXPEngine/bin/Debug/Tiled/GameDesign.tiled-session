@@ -89,7 +89,7 @@
             "selectedLayer": 1,
             "viewCenter": {
                 "x": 2800,
-                "y": 1199.3333333333333
+                "y": 1199.6666666666665
             }
         },
         "LevelSelecter.tmx#other btn copy 2": {
@@ -100,8 +100,8 @@
             "scale": 3,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 3282.6666666666665,
-                "y": 2291
+                "x": 2800,
+                "y": 1199.8333333333333
             }
         },
         "Level_1.tmx#mellowautotiles": {
@@ -112,10 +112,10 @@
         },
         "Level_2.tmx": {
             "scale": 4,
-            "selectedLayer": 0,
+            "selectedLayer": 7,
             "viewCenter": {
-                "x": 1173.25,
-                "y": 1820.25
+                "x": 755.5,
+                "y": 2012
             }
         },
         "Level_2.tmx#mellowautotiles": {
@@ -132,7 +132,7 @@
             "selectedLayer": 2,
             "viewCenter": {
                 "x": 367.3333333333333,
-                "y": 375
+                "y": 374.3333333333333
             }
         },
         "MainMenu.tmx#Buttons": {
