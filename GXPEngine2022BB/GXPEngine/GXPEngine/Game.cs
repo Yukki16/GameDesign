@@ -45,7 +45,7 @@ namespace GXPEngine
 				return _renderRange;
 			}
 			set {
-				_renderRange = value;
+				_renderRange = new Rectangle(0,0,150,150);
 			}
 		}
 
@@ -116,7 +116,7 @@ namespace GXPEngine
 				_glContext = new GLContext (this);
 				_glContext.CreateWindow (pWidth, pHeight, pFullScreen, pVSync, pRealWidth, pRealHeight);
 
-				_renderRange = new Rectangle (0, 0, pWidth, pHeight);
+				_renderRange = new Rectangle(0, 0, pWidth, pHeight);
 
 				//register ourselves for updates
 				Add (this);
@@ -148,7 +148,7 @@ namespace GXPEngine
 			//Console.WriteLine ("Setting viewport to {0},{1},{2},{3}",x,y,width,height);
 			_glContext.SetScissor(x, game.height - height - y, width, height);
 			if (setRenderRange) {
-				_renderRange = new Rectangle(x, y, width, height);
+				_renderRange = new Rectangle(0, 0, 150, 150);
 			}
 		}
 

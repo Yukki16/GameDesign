@@ -126,10 +126,10 @@ namespace GXPEngine {
 				Game main=Game.main;
 				var oldRange = main.RenderRange;
 				SetRenderRange();
-				main.SetViewport (_windowX, _windowY, _width, _height, false);
+				main.SetViewport (_windowX, _windowY, 150, 150, false);
 				GL.Clear(GL.COLOR_BUFFER_BIT);
 				current.Render (glContext);
-				main.SetViewport ((int)oldRange.left, (int)oldRange.top, (int)oldRange.width, (int)oldRange.height);
+				main.SetViewport ((int)oldRange.left, (int)oldRange.top, 150, 150);
 			}
 			
 			for (int i=0; i<pushes; i++) {
@@ -155,7 +155,7 @@ namespace GXPEngine {
 				if (worldSpaceCorners[i].y < minY) minY = worldSpaceCorners[i].y;
 			}
 
-			Game.main.RenderRange = new GXPEngine.Core.Rectangle (minX, minY, maxX - minX, maxY - minY);
+			Game.main.RenderRange = new GXPEngine.Core.Rectangle (0,0,150,150);
 		}
 	}
 }

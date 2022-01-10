@@ -46,9 +46,9 @@ namespace GXPEngine.Scenes
             loader.LoadObjectGroups();
             //loader.LoadObjectGroups(0);
 
-            loader.addColliders = false;
+            //loader.addColliders = false;
 
-            loader.LoadTileLayers(0);
+            //loader.LoadTileLayers(0);
 
             loader.addColliders = false;
 

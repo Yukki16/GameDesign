@@ -111,11 +111,11 @@
             "scaleInDock": 1.5
         },
         "Level_2.tmx": {
-            "scale": 0.33,
-            "selectedLayer": 1,
+            "scale": 0.5,
+            "selectedLayer": 3,
             "viewCenter": {
-                "x": 1766.6666666666667,
-                "y": 1275.7575757575758
+                "x": 1658,
+                "y": 1554
             }
         },
         "Level_2.tmx#mellowautotiles": {

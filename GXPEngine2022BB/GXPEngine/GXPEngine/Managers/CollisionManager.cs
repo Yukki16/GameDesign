@@ -12,7 +12,7 @@ namespace GXPEngine
 		/// <summary>
 		/// Set this to false if you want to be able to remove game objects from the game during OnCollision (=the old, unsafe default behavior).
 		/// </summary>
-		public static bool SafeCollisionLoop=true;
+		public static bool SafeCollisionLoop=false;
 		/// <summary>
 		/// Set this to true if you only want to include trigger colliders in OnCollision (=more efficient).
 		/// </summary>

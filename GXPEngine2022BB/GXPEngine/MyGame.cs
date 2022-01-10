@@ -28,6 +28,10 @@ public class MyGame : Game
 	void Update()
 	{
 		
+		if(Input.GetKeyDown(Key.K))
+        {
+            Console.WriteLine(GetDiagnostics());
+        }
 		
 	}
 
