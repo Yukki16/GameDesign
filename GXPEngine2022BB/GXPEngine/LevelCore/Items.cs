@@ -64,6 +64,7 @@ namespace GXPEngine
                 {
                     player.HP = player.maxHP;
                 }
+                player.healthUI.UpdateHealth();
             }
 
             if (itemNumber > 19 && itemNumber < 26)
