@@ -187,7 +187,7 @@ namespace GXPEngine
         void VerticalMovement()
         {
             fallingSpeed += 1;
-
+            
             if (Input.GetKeyDown(Key.SPACE) && canJump)
             {
                 fallingSpeed = -15;
@@ -206,6 +206,7 @@ namespace GXPEngine
                 isJumping = true;
                 canJump = false;
             }
+            
         }
 
         void Attack()
@@ -286,8 +287,6 @@ namespace GXPEngine
                 if(objects[i] is PushableObject po)
                 {
                     po.HorizontalMovement();
-
-                    //Console.WriteLine("do");
                 }
             }
 

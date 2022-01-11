@@ -47,7 +47,7 @@ namespace GXPEngine
         public void HorizontalMovement()
         {
             MoveUntilCollision(player.xSpeed, 0, currentLevel.GetTiles(this));
-            Console.WriteLine(player.xSpeed);
+            //Console.WriteLine(player.xSpeed);
         }
     }
 }

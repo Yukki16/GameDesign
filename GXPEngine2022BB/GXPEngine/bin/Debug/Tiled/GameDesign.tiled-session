@@ -101,7 +101,7 @@
             "selectedLayer": 2,
             "viewCenter": {
                 "x": 2800,
-                "y": 1199.8333333333333
+                "y": 1199.6666666666665
             }
         },
         "Level_1.tmx#mellowautotiles": {
@@ -111,12 +111,15 @@
             "scaleInDock": 1.5
         },
         "Level_2.tmx": {
-            "scale": 0.5,
-            "selectedLayer": 3,
+            "scale": 1.5,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 1658,
-                "y": 1554
+                "x": 981.3333333333333,
+                "y": 1067.3333333333333
             }
+        },
+        "Level_2.tmx#Alian Tree": {
+            "scaleInDock": 1
         },
         "Level_2.tmx#mellowautotiles": {
             "scaleInDock": 2
@@ -181,7 +184,7 @@
     "tileset.lastUsedFormat": "tsx",
     "tileset.spacing": 0,
     "tileset.tileSize": {
-        "height": 32,
-        "width": 32
+        "height": 64,
+        "width": 64
     }
 }

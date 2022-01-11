@@ -52,6 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LevelCore\Gate.cs" />
+    <Compile Include="MagicTree.cs" />
+    <Compile Include="Paralax.cs" />
     <Compile Include="PushableObject.cs" />
     <Compile Include="UI\HealthUI.cs" />
     <Compile Include="UI\Button.cs" />

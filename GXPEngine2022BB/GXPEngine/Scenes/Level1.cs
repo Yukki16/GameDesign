@@ -21,6 +21,8 @@ namespace GXPEngine.Scenes
         private Map map;
         public List<GameObject> waypoints = new List<GameObject>();
 
+        private SpriteBatch fillingTiles = new SpriteBatch();
+
         //HealthUI healthUi;
         public Level1()
         {
@@ -46,9 +48,11 @@ namespace GXPEngine.Scenes
             loader.LoadObjectGroups();
             //loader.LoadObjectGroups(0);
 
-            //loader.addColliders = false;
+            loader.rootObject = fillingTiles;
+            loader.addColliders = false;
+            loader.LoadTileLayers(0);
 
-            //loader.LoadTileLayers(0);
+            loader.rootObject = this;
 
             loader.addColliders = false;
 
@@ -66,7 +70,8 @@ namespace GXPEngine.Scenes
 
             //Console.WriteLine(gameObjects);
 
-            
+            fillingTiles.Freeze();
+            this.AddChild(fillingTiles);
         }
 
         private void Tileloader_OnTileCreated(Sprite sprite, int row, int column)
