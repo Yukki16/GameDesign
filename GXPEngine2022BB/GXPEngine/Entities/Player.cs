@@ -227,9 +227,9 @@ namespace GXPEngine
             GameObject[] objects = attackHitBox.GetCollisions(true, false);
             for (int i = 0; i < objects.Length; i++)
             {
-                if (objects[i] is Enemy)
+                if (objects[i] is Enemy enemy)
                 {
-                    Enemy enemy = objects[i].FindObjectOfType<Enemy>();
+                    //Enemy enemy = objects[i].FindObjectOfType<Enemy>();
                     if (!enemy.gotDamaged)
                     {
                         enemy.LowerHP(damage);

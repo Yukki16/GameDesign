@@ -111,11 +111,11 @@
             "scaleInDock": 1.5
         },
         "Level_2.tmx": {
-            "scale": 1.5,
-            "selectedLayer": 0,
+            "scale": 0.75,
+            "selectedLayer": 7,
             "viewCenter": {
-                "x": 981.3333333333333,
-                "y": 1067.3333333333333
+                "x": 1225.3333333333333,
+                "y": 1726.6666666666665
             }
         },
         "Level_2.tmx#Alian Tree": {

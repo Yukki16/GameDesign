@@ -48,6 +48,7 @@ namespace GXPEngine.Scenes
             loader.LoadObjectGroups();
             //loader.LoadObjectGroups(0);
 
+            //Sprite batch
             loader.rootObject = fillingTiles;
             loader.addColliders = false;
             loader.LoadTileLayers(0);
