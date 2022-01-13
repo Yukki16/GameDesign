@@ -15,9 +15,9 @@ namespace GXPEngine
         private Player player;
         public PushableObject(String name, int rows, int cols, TiledObject obj) : base(name, rows, cols, -1, true)
         {
-            this.collider.isTrigger = true;
+            //this.collider.isTrigger = true;
         }
-
+        //move until colision return a collider if it is a box, push it
         void Update()
         {
             VerticalMovement();

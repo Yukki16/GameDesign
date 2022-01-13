@@ -288,6 +288,14 @@ namespace GXPEngine
                 {
                     po.HorizontalMovement();
                 }
+
+                if(objects[i] is MagicTree mt)
+                {
+                    if(Input.GetKeyDown(Key.E) && this.maxHP > 2)
+                    {
+                        mt.MakeWish();
+                    }
+                }
             }
 
             if(gotDamaged == true && Time.time - takeDamageTimer < 1000)

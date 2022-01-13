@@ -101,7 +101,7 @@
             "selectedLayer": 2,
             "viewCenter": {
                 "x": 2800,
-                "y": 1199.6666666666665
+                "y": 1199.8333333333333
             }
         },
         "Level_1.tmx#mellowautotiles": {
@@ -112,10 +112,10 @@
         },
         "Level_2.tmx": {
             "scale": 0.75,
-            "selectedLayer": 7,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 1225.3333333333333,
-                "y": 1726.6666666666665
+                "x": 1249.3333333333333,
+                "y": 1649.333333333333
             }
         },
         "Level_2.tmx#Alian Tree": {

@@ -119,6 +119,11 @@ namespace GXPEngine.Scenes
             {
                 po.SetVars(this, this.player);
             }
+
+            if(sprite is MagicTree mt)
+            {
+                mt.AddPlayer(this.player);
+            }
         }
 
         public List<GameObject> GetTiles(Sprite sprite)
