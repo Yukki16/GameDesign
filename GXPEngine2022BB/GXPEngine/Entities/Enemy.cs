@@ -116,7 +116,7 @@ namespace GXPEngine
 
         void DestroyEnemy()
         {
-            if (HP == 0)
+            if (HP <= 0)
             {
                 itemDropped.AddPlayer(this.p);
                 parent.AddChild(itemDropped);
