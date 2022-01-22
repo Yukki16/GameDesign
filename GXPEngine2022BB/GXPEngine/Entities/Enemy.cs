@@ -64,7 +64,7 @@ namespace GXPEngine
                 ResumeMovement();
             }
 
-
+            if( HP <= 0 )
             DestroyEnemy();
         }
 
@@ -115,15 +115,11 @@ namespace GXPEngine
         }
 
         void DestroyEnemy()
-        {
-            if (HP <= 0)
-            {
+        {   
                 itemDropped.AddPlayer(this.p);
                 parent.AddChild(itemDropped);
                 itemDropped.SetXY(this.x, this.y);
                 this.LateDestroy();
-
-            }
         }
 
         public void LowerHP(int damage)

@@ -28,10 +28,10 @@
     <property name="SpriteName" value="Level_3.png"/>
    </properties>
   </object>
-  <object id="5" type="GXPEngine.Button" x="10.5" y="122.667" width="111" height="33.3333">
+  <object id="5" type="GXPEngine.Button" x="384" y="240" width="111" height="33.3333">
    <properties>
     <property name="Load" value="MainMenu"/>
-    <property name="SpriteName" value="Tutorial.png"/>
+    <property name="SpriteName" value="Back.png"/>
    </properties>
   </object>
  </objectgroup>

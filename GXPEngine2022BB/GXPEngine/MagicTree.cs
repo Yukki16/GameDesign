@@ -46,7 +46,7 @@ namespace GXPEngine
                 item = new Items(random.Next(20, 26));
             }
             item.AddPlayer(this.player);
-            item.SetXY(this.x, this.y);
+            item.SetXY(this.x, this.y - this.height/2);
             parent.AddChild(item);
         }
 

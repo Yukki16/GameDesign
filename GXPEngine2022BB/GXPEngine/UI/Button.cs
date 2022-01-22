@@ -21,6 +21,14 @@ namespace GXPEngine
             //Console.WriteLine(myGame);
         }
 
+        public Button(String _levelName, String buttonSpriteName) : base("Buttons/" + buttonSpriteName)
+        {
+            levelName = _levelName;
+            //myGame = game.FindObjectOfType<MyGame>();
+            sceneManager = game.FindObjectOfType<Scenes.SceneManager>();
+            //Console.WriteLine(myGame);
+        }
+
         void Update()
         {
             if (this != null)

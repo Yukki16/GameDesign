@@ -9,7 +9,7 @@ namespace GXPEngine.Scenes
     {
         private Scenes.Level1 level1 = new Level1();
         private MainMenu mainMenu = new MainMenu();
-        public String currentLevel;
+        public String currentLevelName;
 
 
         HealthUI healthUi;
@@ -39,6 +39,7 @@ namespace GXPEngine.Scenes
 
         public void LoadLevel(string currentLevel)
         {
+            currentLevelName = currentLevel;
            if (currentLevel == "MainMenu" || currentLevel == "LevelSelecter")
            {
                 RemoveAllChildren();
@@ -54,7 +55,7 @@ namespace GXPEngine.Scenes
                 level1 = new Level1();
                 level1.CreateLevel(currentLevel);
                 AddChild(level1);
-                level1.levelName = this.currentLevel;
+                level1.levelName = this.currentLevelName;
            }
 
             player = this.FindObjectOfType<Player>();

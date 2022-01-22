@@ -19,6 +19,7 @@ namespace GXPEngine
         private Boolean isAttacking = false;
         private Boolean gotDamaged = false;
         public Boolean hasKey = false;
+        private bool addedRestart = false;
 
         //private Boolean isStanding = false;
 
@@ -72,11 +73,31 @@ namespace GXPEngine
         {
             if (currentLevel == null)
                 return;
-            PlayerAnimations();
-            HorizontalMovement();
-            VerticalMovement();
-            Attack();
-            Collisions();
+            if (HP > 0)
+            {
+                HorizontalMovement();
+                VerticalMovement();
+                Attack();
+                PlayerAnimations();
+                Collisions();
+            }
+            else
+            {
+                PlayerDeath();
+            }
+        }
+
+        private void PlayerDeath()
+        {
+            if (!addedRestart)
+            {
+                Button restartButton = new Button(currentLevel.levelName, "Restart.png");
+                restartButton.SetXY(-sceneManager.x +  game.width/4, -sceneManager.y + game.height/3);
+
+                Console.WriteLine(restartButton.x + " " + restartButton.y);
+                sceneManager.AddChild(restartButton);
+                addedRestart = true;
+            }
         }
 
         private void PlayerAnimations()
