@@ -531,10 +531,12 @@ To move
    <text wrap="1" color="#ffffff" halign="center" valign="center">Press SPACE 
 To jump</text>
   </object>
-  <object id="39" x="1493.5" y="2091.5" width="295" height="64">
+  <object id="39" x="1492.17" y="2066.17" width="295" height="101.333">
    <text wrap="1" color="#ffffff">This is one of the enemies
 You may jump over it
-Or kill it (it drops helpful items)</text>
+Or kill it (it drops helpful items)
+
+Press left click to attack</text>
   </object>
   <object id="40" x="2062.5" y="2033.17" width="180.333" height="92.3333">
    <text wrap="1" color="#ffffff" halign="center" valign="center">Looks like a dead end
