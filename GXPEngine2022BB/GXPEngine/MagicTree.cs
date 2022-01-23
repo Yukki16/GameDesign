@@ -9,7 +9,7 @@ namespace GXPEngine
     class MagicTree : AnimationSprite
     {
         Player player;
-        Random random = new Random(2);
+        Random random = new Random();
         Items item;
         public MagicTree(String name, int rows, int cols, TiledObject obj) : base(name, rows, cols, -1, true)
         {
