@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Level_4.tmx",
+    "activeFile": "Level_1.tmx",
     "expandedProjectPaths": [
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
@@ -88,8 +88,8 @@
             "scale": 1.5,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 323.99999999999994,
-                "y": 199.99999999999997
+                "x": 2800,
+                "y": 1199.6666666666665
             }
         },
         "LevelSelecter.tmx#other btn copy 2": {
@@ -97,11 +97,11 @@
             "scaleInEditor": 1
         },
         "Level_1.tmx": {
-            "scale": 0.33,
-            "selectedLayer": 2,
+            "scale": 1.5,
+            "selectedLayer": 7,
             "viewCenter": {
-                "x": 2466.666666666667,
-                "y": 1330.3030303030305
+                "x": 4118.666666666666,
+                "y": 2182.6666666666665
             }
         },
         "Level_1.tmx#mellowautotiles": {
@@ -114,8 +114,8 @@
             "scale": 2,
             "selectedLayer": 7,
             "viewCenter": {
-                "x": 939,
-                "y": 1189.5
+                "x": 2800,
+                "y": 1199.75
             }
         },
         "Level_2.tmx#Alian Tree": {
@@ -134,8 +134,8 @@
             "scale": 0.5,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 1654,
-                "y": 910
+                "x": 2800,
+                "y": 1199
             }
         },
         "Level_3.tmx#Alian Tree": {
@@ -154,8 +154,8 @@
             "scale": 0.75,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 2221.333333333333,
-                "y": 1005.3333333333333
+                "x": 2800,
+                "y": 1199.3333333333333
             }
         },
         "Level_4.tmx#Alian Tree": {
@@ -174,8 +174,8 @@
             "scale": 1.5,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 366.99999999999994,
-                "y": 181.99999999999997
+                "x": 367.3333333333333,
+                "y": 374.3333333333333
             }
         },
         "MainMenu.tmx#Buttons": {
@@ -210,10 +210,10 @@
     "recentFiles": [
         "MainMenu.tmx",
         "LevelSelecter.tmx",
-        "Level_1.tmx",
-        "Level_2.tmx",
-        "Level_3.tmx",
         "Level_4.tmx",
+        "Level_3.tmx",
+        "Level_2.tmx",
+        "Level_1.tmx",
         "C:/The folder of all/Uni stuff/First year/sez2/Game Design/GXPEngine2022BB/GXPEngine/bin/Debug/Terrain/mapTest_1.tmx",
         "C:/The folder of all/Uni stuff/First year/sez2/Game Design/GXPEngine2022BB/GXPEngine/bin/Debug/Terrain/MainMenu.tmx",
         "C:/The folder of all/Uni stuff/First year/sez2/Game Design/GXPEngine2022BB/GXPEngine/bin/Debug/Terrain/mellowplatformertileset.tsx",
