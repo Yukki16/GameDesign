@@ -13,12 +13,22 @@ namespace GXPEngine
         String levelName;
         Scenes.SceneManager sceneManager;
 
+        private bool isSettings;
+        private string settingName;
+        private int increasingValue;
+
         public Button(TiledObject obj) : base("Buttons/" + obj.GetStringProperty("SpriteName"))
         {
-            levelName = obj.GetStringProperty("Load");
+            levelName = obj.GetStringProperty("Load"); // for loading the scenes, if null no problem
+
+            isSettings = obj.GetBoolProperty("isSettings"); //for the settings buttons
+            settingName = obj.GetStringProperty("settingName"); //it will determine the setting it modifies
+            increasingValue = obj.GetIntProperty("increasingValue"); // as I will have only sfx settings, is used to increase/decrease volume
             //myGame = game.FindObjectOfType<MyGame>();
             sceneManager = game.FindObjectOfType<Scenes.SceneManager>();
             //Console.WriteLine(myGame);
+
+
         }
 
         public Button(String _levelName, String buttonSpriteName) : base("Buttons/" + buttonSpriteName)
@@ -37,14 +47,24 @@ namespace GXPEngine
                 {
 
                     this.SetColor(1, 1, 1);
-                    if (Input.GetMouseButtonDown(0))
+                    if (!isSettings)
                     {
-                        
-                        //Console.WriteLine("pressed");
-                        //parent.parent.parent.RemoveChild(parent.parent); //removes the scene manager from MyGame, I can't believe it actually works
-                                                                        //Button > MainMenu > SceneManager > MyGame   //why the fuck do I need this?!
-                        sceneManager.LoadLevel(levelName);
-                        //myGame.AddChild(sceneManager);
+                        if (Input.GetMouseButtonDown(0))
+                        {
+
+                            //Console.WriteLine("pressed");
+                            //parent.parent.parent.RemoveChild(parent.parent); //removes the scene manager from MyGame, I can't believe it actually works
+                            //Button > MainMenu > SceneManager > MyGame   //why the fuck do I need this?!
+                            sceneManager.LoadLevel(levelName);
+                            //myGame.AddChild(sceneManager);
+                        }
+                    }
+                    else
+                    {
+                        if (Input.GetMouseButtonDown(0))
+                        {
+                            changeVolume();
+                        }
                     }
                 }
                 else
@@ -52,6 +72,32 @@ namespace GXPEngine
                     this.SetColor(0.8f, 0.8f, 0.8f);
                 }
             }
+        }
+
+        private void changeVolume()
+        {
+            if(settingName == "Music")
+            {
+                if (sceneManager.sfx.musicVolume <= 10 && sceneManager.sfx.musicVolume >= 0)
+                {
+                    sceneManager.sfx.musicVolume += this.increasingValue;
+                    if(sceneManager.sfx.musicVolume < 0 || sceneManager.sfx.musicVolume > 10)
+                        sceneManager.sfx.musicVolume = Mathf.Clamp(sceneManager.sfx.musicVolume, 0, 10);
+
+                }
+            }
+            else
+            {
+                if (sceneManager.sfx.effectVolume <= 10 && sceneManager.sfx.effectVolume > 0)
+                {
+                    sceneManager.sfx.effectVolume += this.increasingValue;
+                    if (sceneManager.sfx.effectVolume < 0 || sceneManager.sfx.effectVolume > 10)
+                        sceneManager.sfx.effectVolume = Mathf.Clamp(sceneManager.sfx.effectVolume, 0, 10);
+                }
+                
+            }
+
+            sceneManager.sfx.SetVolume();
         }
     }
 }

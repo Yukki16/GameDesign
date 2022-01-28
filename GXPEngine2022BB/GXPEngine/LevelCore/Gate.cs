@@ -55,7 +55,7 @@ namespace GXPEngine
 
         public void FinishLevel()
         {
-            sceneManager.LoadLevel("LevelSelecter");
+            sceneManager.LoadLevel("SelectingMenu");
         }
     }
 }

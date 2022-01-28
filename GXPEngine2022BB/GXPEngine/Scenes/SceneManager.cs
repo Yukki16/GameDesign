@@ -7,10 +7,19 @@ namespace GXPEngine.Scenes
 {
     class SceneManager : GameObject
     {
-        private Scenes.Level1 level1 = new Level1();
+        private Scenes.Level level1 = new Level();
         private MainMenu mainMenu = new MainMenu();
-        public String currentLevelName;
+        //public String SceneName;
 
+        enum PossibleScenes
+        {
+            Menu,
+            Level
+        }
+
+        PossibleScenes currentPossibleScene;
+
+        public SFX sfx = new SFX();
 
         HealthUI healthUi;
 
@@ -31,32 +40,45 @@ namespace GXPEngine.Scenes
 
             if (Input.GetKeyDown(Key.Q))
             {
-                this.LoadLevel("LevelSelecter");
+                this.LoadLevel("SelectingMenu");
             }
 
         }
 
 
-        public void LoadLevel(string currentLevel)
+        public void LoadLevel(string currentSceneName)
         {
-            currentLevelName = currentLevel;
-           if (currentLevel == "MainMenu" || currentLevel == "LevelSelecter")
-           {
+            if (!currentSceneName.Contains("Level"))
+            {
+                currentPossibleScene = PossibleScenes.Menu;
+            }
+            else
+            {
+                currentPossibleScene = PossibleScenes.Level;
+            }
+
+            //this.SceneName = currentSceneName;
+
+            if (currentPossibleScene == PossibleScenes.Menu)
+            {
                 RemoveAllChildren();
                 mainMenu = new MainMenu();
-                mainMenu.CreateLevel(currentLevel);
+                mainMenu.CreateLevel(currentSceneName);
                 AddChild(mainMenu);
+                sfx.PlayMusic(false);
                 //Console.WriteLine(mainMenu == null);
-                
-           }
-           else
-           {
+
+            }
+            else
+            {
                 RemoveAllChildren();
-                level1 = new Level1();
-                level1.CreateLevel(currentLevel);
+                level1 = new Level();
+                level1.CreateLevel(currentSceneName);
                 AddChild(level1);
-                level1.levelName = this.currentLevelName;
-           }
+                level1.levelName = currentSceneName;
+
+                sfx.PlayMusic(true);
+            }
 
             player = this.FindObjectOfType<Player>();
             if (player != null)
@@ -65,6 +87,7 @@ namespace GXPEngine.Scenes
                 parent.AddChild(healthUi);
                 player.healthUI = this.healthUi;
                 player.sceneManager = this;
+                player.sfx = this.sfx;
             }
 
             this.x = 0;
@@ -81,6 +104,7 @@ namespace GXPEngine.Scenes
                 //Console.WriteLine("destroied");
                 //Console.WriteLine(mainMenu == null);
                 //Console.WriteLine(level1 == null);
+                if(child != sfx)
                 child.Remove();
             }
             

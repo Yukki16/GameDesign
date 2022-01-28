@@ -26,7 +26,7 @@ namespace GXPEngine
         Items itemDropped;
 
         AnimationSprite enemyAnimation;
-        private Level1 currentLevel;
+        private Level currentLevel;
 
         public Enemy(TiledObject obj) : base("Enemies/Debug.png")
         {
@@ -138,7 +138,7 @@ namespace GXPEngine
             }
         }
 
-        public void SetLevel(Level1 _level)
+        public void SetLevel(Level _level)
         {
             currentLevel = _level;
             p = _level.FindObjectOfType<Player>();

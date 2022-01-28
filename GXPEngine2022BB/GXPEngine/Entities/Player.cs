@@ -42,13 +42,13 @@ namespace GXPEngine
 
         private Sprite attackHitBox = new Sprite("2 GraveRobber/AttackHitBox.png");
 
-        private Level1 currentLevel;
+        private Level currentLevel;
 
         public HealthUI healthUI;
 
         public SceneManager sceneManager;
 
-        
+        public SFX sfx;
         
         public Player(TiledObject obj) : base(new Texture2D(15,32))
         {
@@ -236,6 +236,7 @@ namespace GXPEngine
             {
                 isAttacking = true;
                 attackTimer = Time.time;
+                sfx.PlaySwordWoosh();
             }
             else if (Time.time - attackTimer > 1000)
             {
@@ -253,6 +254,7 @@ namespace GXPEngine
                     //Enemy enemy = objects[i].FindObjectOfType<Enemy>();
                     if (!enemy.gotDamaged)
                     {
+                        sfx.PlaySwordHit();
                         enemy.LowerHP(damage);
                         enemy.gotDamaged = true;
                         enemy.damagedTimer = Time.time;
@@ -289,7 +291,7 @@ namespace GXPEngine
                 }
                 //Console.WriteLine(HP);
 
-                if(objects[i] is Gate g )
+                if (objects[i] is Gate g)
                 {
                     if (Input.GetKeyDown(Key.E) && hasKey)
                     {
@@ -298,16 +300,11 @@ namespace GXPEngine
                         timer = Time.time;
                     }
 
-                    if(g.portalopened && Input.GetKeyDown(Key.E) && Time.time - timer > 1000)
+                    if (g.portalopened && Input.GetKeyDown(Key.E) && Time.time - timer > 1000)
                     {
                         g.FinishLevel();
                     }
 
-                }
-
-                if(objects[i] is PushableObject po)
-                {
-                    po.HorizontalMovement();
                 }
 
                 if(objects[i] is MagicTree mt)
@@ -331,7 +328,7 @@ namespace GXPEngine
             }
         }
         
-        public void SetLevel(Level1 _level)
+        public void SetLevel(Level _level)
         {
             currentLevel = _level;
         }

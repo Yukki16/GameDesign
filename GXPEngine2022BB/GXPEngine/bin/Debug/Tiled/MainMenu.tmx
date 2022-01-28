@@ -63,12 +63,13 @@
  <objectgroup id="6" name="Object Layer 1">
   <object id="5" type="GXPEngine.Button" x="180" y="43.5" width="147" height="56">
    <properties>
-    <property name="Load" value="LevelSelecter"/>
+    <property name="Load" value="SelectingMenu"/>
     <property name="SpriteName" value="Play.png"/>
    </properties>
   </object>
   <object id="6" type="GXPEngine.Button" x="180" y="112.5" width="147" height="56">
    <properties>
+    <property name="Load" value="Settings"/>
     <property name="SpriteName" value="Settings.png"/>
    </properties>
   </object>
