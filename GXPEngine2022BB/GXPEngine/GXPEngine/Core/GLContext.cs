@@ -139,7 +139,7 @@ namespace GXPEngine.Core {
 #endif
 
 				if (Game.main!=null) {
-					Game.main.RenderRange=new Rectangle(0,0,100,100);
+					Game.main.RenderRange=new Rectangle(0, 0, WindowSize.instance.width, WindowSize.instance.height);
 				}
 			});
 			InitializeSoundSystem ();

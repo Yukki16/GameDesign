@@ -277,7 +277,6 @@ namespace GXPEngine
 		/// <param name="x">The x coordinate to draw the text, using canvas (pixel) coordinates</param>
 		/// <param name="y">The y coordinate to draw the text, using canvas (pixel) coordinates</param>
 		public void Text(string text, float x, float y)
-
 		{
 
 			StringFormat sf = new StringFormat();
@@ -292,6 +291,29 @@ namespace GXPEngine
 
 			graphics.DrawString(text, font, brush, new RectangleF(0, 0, width, height), sf);
 
+		}
+
+		public void Text(string text, float x, float y, bool isMadeByYouNotTiled)
+		{
+				float twidth, theight;
+				TextDimensions(text, out twidth, out theight);
+				if (HorizontalTextAlign == CenterMode.Max)
+				{
+					x -= twidth;
+				}
+				else if (HorizontalTextAlign == CenterMode.Center)
+				{
+					x -= twidth / 2;
+				}
+				if (VerticalTextAlign == CenterMode.Max)
+				{
+					y -= theight;
+				}
+				else if (VerticalTextAlign == CenterMode.Center)
+				{
+					y -= theight / 2;
+				}
+				graphics.DrawString(text, font, brush, x, y); //left+BoundaryPadding/2,top+BoundaryPadding/2);
 		}
 
 		/// <summary>

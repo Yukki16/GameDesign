@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GXPEngine.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,9 @@ namespace GXPEngine
 
         public float musicVolume = 5;
         public float effectVolume = 5;
+
+        public Vector2 musicVolumePoz = new Vector2(260, 77.5f);
+        public Vector2 effectVolumePoz = new Vector2(260, 169.5f);
         public SFX()
         {
             menuMusic = new Sound("Music/menuMusic.mp3", true, false).Play();

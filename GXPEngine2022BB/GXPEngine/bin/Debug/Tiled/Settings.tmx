@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="8">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="12">
  <layer id="1" name="Tile Layer 1" width="50" height="50">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -91,7 +91,7 @@
     <property name="SpriteName" value="RightArrow.png"/>
     <property name="increasingValue" type="int" value="1"/>
     <property name="isSettings" type="bool" value="true"/>
-    <property name="settingName" value="Music"/>
+    <property name="settingName" value="Effect"/>
    </properties>
   </object>
   <object id="7" type="GXPEngine.Button" x="149" y="152" width="30" height="30">

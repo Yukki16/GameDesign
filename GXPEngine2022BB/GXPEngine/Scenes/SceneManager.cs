@@ -20,6 +20,9 @@ namespace GXPEngine.Scenes
         PossibleScenes currentPossibleScene;
 
         public SFX sfx = new SFX();
+        private EasyDraw easyDraw;
+        
+        
 
         HealthUI healthUi;
 
@@ -27,9 +30,13 @@ namespace GXPEngine.Scenes
 
         public SceneManager()
         {
-            
-        }
-
+            easyDraw = new EasyDraw(game.width, game.height, false);
+            easyDraw.SetXY(0, 0);
+            easyDraw.TextAlign(CenterMode.Center, CenterMode.Center);
+            easyDraw.Text(sfx.musicVolume.ToString(), sfx.musicVolumePoz.x, sfx.musicVolumePoz.y, true);
+            easyDraw.Text(sfx.effectVolume.ToString(), sfx.effectVolumePoz.x, sfx.effectVolumePoz.y, true); //since some time ago, Hans gave me a pice of code for Text for Tiled since it wasnt working properly
+        }                                                                                                   //I deleted the old one and put the new one it back then
+                                                                                                            //now I've got the old one in as well and added a null parameter to make a difference between them
         void Update()
         {
             if(player != null)
@@ -43,11 +50,16 @@ namespace GXPEngine.Scenes
                 this.LoadLevel("SelectingMenu");
             }
 
+            /*if(Input.GetMouseButtonDown(0))
+            {
+                Console.WriteLine(Input.mouseX + " " + Input.mouseY);
+            }*/
         }
 
 
         public void LoadLevel(string currentSceneName)
         {
+
             if (!currentSceneName.Contains("Level"))
             {
                 currentPossibleScene = PossibleScenes.Menu;
@@ -90,6 +102,12 @@ namespace GXPEngine.Scenes
                 player.sfx = this.sfx;
             }
 
+            if(currentSceneName == "Settings")
+            {
+                AddChild(easyDraw);
+                Console.WriteLine("added");
+            }
+
             this.x = 0;
             this.y = 0;
             
@@ -115,6 +133,13 @@ namespace GXPEngine.Scenes
             { 
                 child.Remove();
             }
+        }
+
+        public void ModifySoundText()
+        {
+            easyDraw.ClearTransparent();
+            easyDraw.Text(sfx.musicVolume.ToString(), sfx.musicVolumePoz.x, sfx.musicVolumePoz.y, true);
+            easyDraw.Text(sfx.effectVolume.ToString(), sfx.effectVolumePoz.x, sfx.effectVolumePoz.y, true);
         }
     }
 }

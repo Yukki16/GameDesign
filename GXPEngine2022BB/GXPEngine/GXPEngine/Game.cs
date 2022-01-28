@@ -45,7 +45,7 @@ namespace GXPEngine
 				return _renderRange;
 			}
 			set {
-				_renderRange = new Rectangle(0,0,150,150);
+				_renderRange = value;
 			}
 		}
 
@@ -148,7 +148,7 @@ namespace GXPEngine
 			//Console.WriteLine ("Setting viewport to {0},{1},{2},{3}",x,y,width,height);
 			_glContext.SetScissor(x, game.height - height - y, width, height);
 			if (setRenderRange) {
-				_renderRange = new Rectangle(0, 0, 150, 150);
+				_renderRange = new Rectangle(x, y, width, height);
 			}
 		}
 

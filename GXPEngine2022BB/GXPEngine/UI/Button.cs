@@ -22,13 +22,17 @@ namespace GXPEngine
             levelName = obj.GetStringProperty("Load"); // for loading the scenes, if null no problem
 
             isSettings = obj.GetBoolProperty("isSettings"); //for the settings buttons
-            settingName = obj.GetStringProperty("settingName"); //it will determine the setting it modifies
+            settingName = obj.GetStringProperty("settingName"); //it will determine the setting it modifies   ( or quit the game in case of exit )
             increasingValue = obj.GetIntProperty("increasingValue"); // as I will have only sfx settings, is used to increase/decrease volume
+            
             //myGame = game.FindObjectOfType<MyGame>();
             sceneManager = game.FindObjectOfType<Scenes.SceneManager>();
             //Console.WriteLine(myGame);
 
-
+            /*if(isSettings)
+            {
+                sceneManager.AddTextInSettings();
+            }*/
         }
 
         public Button(String _levelName, String buttonSpriteName) : base("Buttons/" + buttonSpriteName)
@@ -52,6 +56,10 @@ namespace GXPEngine
                         if (Input.GetMouseButtonDown(0))
                         {
 
+                            if (settingName == "Exit")
+                            {
+                                game.Destroy();
+                            }
                             //Console.WriteLine("pressed");
                             //parent.parent.parent.RemoveChild(parent.parent); //removes the scene manager from MyGame, I can't believe it actually works
                             //Button > MainMenu > SceneManager > MyGame   //why the fuck do I need this?!
@@ -96,7 +104,7 @@ namespace GXPEngine
                 }
                 
             }
-
+            sceneManager.ModifySoundText();
             sceneManager.sfx.SetVolume();
         }
     }
