@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Level_1.tmx",
+    "activeFile": "MainMenu.tmx",
     "expandedProjectPaths": [
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
@@ -211,23 +211,24 @@
         "Level_1.tmx",
         "Level_2.tmx",
         "Level_3.tmx",
-        "Level_4.tmx"
+        "Level_4.tmx",
+        "Settings.tmx"
     ],
     "project": "GameDesign.tiled-project",
     "property.type": "string",
     "recentFiles": [
-        "MainMenu.tmx",
-        "LevelSelecter.tmx",
+        "Settings.tmx",
         "Level_4.tmx",
         "Level_3.tmx",
         "Level_2.tmx",
         "Level_1.tmx",
+        "LevelSelecter.tmx",
+        "MainMenu.tmx",
         "C:/The folder of all/Uni stuff/First year/sez2/Game Design/GXPEngine2022BB/GXPEngine/bin/Debug/Terrain/mapTest_1.tmx",
         "C:/The folder of all/Uni stuff/First year/sez2/Game Design/GXPEngine2022BB/GXPEngine/bin/Debug/Terrain/MainMenu.tmx",
         "C:/The folder of all/Uni stuff/First year/sez2/Game Design/GXPEngine2022BB/GXPEngine/bin/Debug/Terrain/mellowplatformertileset.tsx",
         "C:/The folder of all/Uni stuff/First year/sez2/Game Design/GXPEngine2022BB/GXPEngine/bin/Debug/Terrain/Jungle_set.tsx",
-        "C:/The folder of all/Uni stuff/First year/sez2/Game Design/GXPEngine2022BB/GXPEngine/bin/Debug/Terrain/mellowautotiles.tsx",
-        "C:/The folder of all/Uni stuff/First year/sez2/Game Design/GXPEngine2022BB/GXPEngine/bin/Debug/Terrain/spritesheet.tsx"
+        "C:/The folder of all/Uni stuff/First year/sez2/Game Design/GXPEngine2022BB/GXPEngine/bin/Debug/Terrain/mellowautotiles.tsx"
     ],
     "textEdit.monospace": true,
     "tileset.embedInMap": true,
