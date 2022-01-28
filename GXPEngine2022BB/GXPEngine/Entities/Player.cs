@@ -207,6 +207,7 @@ namespace GXPEngine
 
         void VerticalMovement()
         {
+            if(fallingSpeed <= 15)
             fallingSpeed += 1;
             
             if (Input.GetKeyDown(Key.SPACE) && canJump)
