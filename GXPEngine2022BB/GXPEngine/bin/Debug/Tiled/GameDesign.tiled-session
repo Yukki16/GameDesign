@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "MainMenu.tmx",
+    "activeFile": "Level_2.tmx",
     "expandedProjectPaths": [
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
@@ -114,11 +114,11 @@
             "scaleInDock": 1.5
         },
         "Level_2.tmx": {
-            "scale": 0.75,
-            "selectedLayer": 7,
+            "scale": 1.5,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 3653.333333333333,
-                "y": 990.6666666666665
+                "x": 3547.333333333333,
+                "y": 678.6666666666666
             }
         },
         "Level_2.tmx#Alian Tree": {
@@ -218,7 +218,7 @@
     "mapScene.enableWorlds": true,
     "openFiles": [
         "MainMenu.tmx",
-        "LevelSelecter.tmx",
+        "SelectingMenu.tmx",
         "Level_1.tmx",
         "Level_2.tmx",
         "Level_3.tmx",
@@ -228,18 +228,18 @@
     "project": "GameDesign.tiled-project",
     "property.type": "bool",
     "recentFiles": [
+        "MainMenu.tmx",
+        "SelectingMenu.tmx",
+        "Level_1.tmx",
         "Settings.tmx",
         "Level_4.tmx",
         "Level_3.tmx",
         "Level_2.tmx",
-        "Level_1.tmx",
         "LevelSelecter.tmx",
-        "MainMenu.tmx",
         "C:/The folder of all/Uni stuff/First year/sez2/Game Design/GXPEngine2022BB/GXPEngine/bin/Debug/Terrain/mapTest_1.tmx",
         "C:/The folder of all/Uni stuff/First year/sez2/Game Design/GXPEngine2022BB/GXPEngine/bin/Debug/Terrain/MainMenu.tmx",
         "C:/The folder of all/Uni stuff/First year/sez2/Game Design/GXPEngine2022BB/GXPEngine/bin/Debug/Terrain/mellowplatformertileset.tsx",
-        "C:/The folder of all/Uni stuff/First year/sez2/Game Design/GXPEngine2022BB/GXPEngine/bin/Debug/Terrain/Jungle_set.tsx",
-        "C:/The folder of all/Uni stuff/First year/sez2/Game Design/GXPEngine2022BB/GXPEngine/bin/Debug/Terrain/mellowautotiles.tsx"
+        "C:/The folder of all/Uni stuff/First year/sez2/Game Design/GXPEngine2022BB/GXPEngine/bin/Debug/Terrain/Jungle_set.tsx"
     ],
     "textEdit.monospace": true,
     "tileset.embedInMap": true,
