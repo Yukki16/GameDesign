@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="350" height="150" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="55">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="350" height="150" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="57">
  <tileset firstgid="1" name="mellowautotiles" tilewidth="16" tileheight="16" tilecount="56" columns="8">
   <image source="../Terrain/mellowautotiles.png" width="128" height="112"/>
  </tileset>
  <tileset firstgid="57" name="mellowplatformertileset" tilewidth="16" tileheight="16" tilecount="128" columns="16">
   <image source="../Terrain/mellowplatformertileset.png" width="256" height="128"/>
  </tileset>
+ <tileset firstgid="185" name="Alian Tree" tilewidth="64" tileheight="64" tilecount="1" columns="1">
+  <image source="../Terrain/Alian Tree.png" width="64" height="64"/>
+ </tileset>
  <objectgroup id="4" name="Other objects">
-  <object id="43" type="GXPEngine.Gate" x="4320" y="2192" width="32" height="32"/>
+  <object id="43" type="GXPEngine.Gate" x="4832" y="2192" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="2" name="Players &amp; Enemies">
   <object id="1" type="GXPEngine.Player" x="672" y="2192" width="15" height="32"/>
@@ -550,7 +553,7 @@ vegetation at their entrances</text>
    <text fontfamily="MS Shell Dlg 2" pixelsize="12" wrap="1" color="#ffffff" halign="center" valign="center">This is the key for the portal
 to end the level</text>
   </object>
-  <object id="48" x="4258.67" y="2096" width="145.667" height="79">
+  <object id="48" x="4768" y="2112" width="145.667" height="79">
    <text fontfamily="MS Shell Dlg 2" pixelsize="12" wrap="1" color="#ffffff" halign="center" valign="center">And this is the portal
 Congratulations!
 
@@ -567,6 +570,13 @@ by 1 heart</text>
   <object id="53" x="4016" y="2112" width="153" height="43.6667">
    <text fontfamily="MS Shell Dlg 2" pixelsize="12" wrap="1" color="#ffffff" halign="center" valign="center">Items that look like a silver chain restore HP
 by half a heart</text>
+  </object>
+  <object id="55" type="GXPEngine.MagicTree" gid="185" x="4400" y="2224" width="64" height="64"/>
+  <object id="56" x="4317" y="2084" width="242" height="81">
+   <text fontfamily="MS Shell Dlg 2" pixelsize="12" wrap="1" color="#ffffff" halign="center" valign="center">This is a wish tree
+You sacrifice a hearth continer for an item
+(It can give the key as well)
+Press E to interact with it</text>
   </object>
  </objectgroup>
 </map>

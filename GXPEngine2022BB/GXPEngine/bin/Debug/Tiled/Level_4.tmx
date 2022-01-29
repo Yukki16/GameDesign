@@ -13,7 +13,11 @@
   <image source="../Terrain/Alian Tree.png" width="64" height="64"/>
  </tileset>
  <objectgroup id="8" name="Portal">
-  <object id="91" type="GXPEngine.Gate" x="832" y="1632" width="32" height="32"/>
+  <object id="91" type="GXPEngine.Gate" x="832" y="1639" width="32" height="32">
+   <properties>
+    <property name="isSpaceShip" type="bool" value="true"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="6" name="Players &amp; enemies">
   <object id="1" type="GXPEngine.Player" x="710.667" y="2028.33" width="15" height="32"/>
@@ -619,9 +623,9 @@
   <object id="120" type="GXPEngine.Waypoint" gid="2" x="1344" y="1136" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="9" name="Text">
-  <object id="103" x="786.5" y="981.833" width="129.667" height="63.6667">
-   <text fontfamily="MS Shell Dlg 2" pixelsize="11" wrap="1" color="#ffffff" halign="center" valign="center">Make a wish tree
-Sacrifice a life for an item</text>
+  <object id="103" x="808.5" y="1561.33" width="129.667" height="63.6667">
+   <text fontfamily="MS Shell Dlg 2" pixelsize="8" wrap="1" color="#ffffff" halign="center" valign="center">This is the spaceship to escape from here
+You still need the key to access it!</text>
   </object>
  </objectgroup>
 </map>

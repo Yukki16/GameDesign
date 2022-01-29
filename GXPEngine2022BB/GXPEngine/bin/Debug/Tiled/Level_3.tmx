@@ -13,7 +13,6 @@
   <image source="../Terrain/Alian Tree.png" width="64" height="64"/>
  </tileset>
  <objectgroup id="4" name="Portal">
-  <object id="49" type="GXPEngine.Gate" x="992" y="1040" width="32" height="32"/>
   <object id="88" type="GXPEngine.Gate" x="2464" y="896" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="5" name="Player &amp; Enemies">
@@ -32,7 +31,7 @@
   </object>
   <object id="24" type="GXPEngine.Items" x="767" y="906" width="16" height="16">
    <properties>
-    <property name="ItemNumber" type="int" value="19"/>
+    <property name="ItemNumber" type="int" value="24"/>
    </properties>
   </object>
   <object id="80" type="GXPEngine.Items" x="1808" y="1440" width="16" height="16">

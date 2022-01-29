@@ -13,22 +13,37 @@ namespace GXPEngine
         AnimationSprite closedPortal;
         AnimationSprite openPortal;
 
+        Sprite SpaceShip;
+
         Player player;
         SceneManager sceneManager;
         public Boolean portalopened = false;
 
+        private bool isSpaceShip;
+
         public Gate(TiledObject obj) : base(new Texture2D(32,32))
         {
-            this.collider.isTrigger = true;
-            closedPortal = new AnimationSprite("Terrain/portalRings1.png", 4, 5, -1, false, false);
-            closedPortal.SetXY(-this.width / 2, -this.height/2);
-            closedPortal.SetCycle(0, 17);
-            //closedPortal.Animate();
-            //closedPortal.collider.isTrigger = true;
-            this.AddChild(closedPortal);
+            isSpaceShip = obj.GetBoolProperty("isSpaceShip");
 
-            openPortal = new AnimationSprite("Terrain/portalRings2.png", 5, 1, -1, false, false);
-            openPortal.SetXY(-this.width / 2, -this.height / 2);
+            this.collider.isTrigger = true;
+            if (!isSpaceShip)
+            {
+                closedPortal = new AnimationSprite("Terrain/portalRings1.png", 4, 5, -1, false, false);
+                closedPortal.SetXY(-this.width / 2, -this.height / 2);
+                closedPortal.SetCycle(0, 17);
+                //closedPortal.Animate();
+                //closedPortal.collider.isTrigger = true;
+                this.AddChild(closedPortal);
+
+                openPortal = new AnimationSprite("Terrain/portalRings2.png", 5, 1, -1, false, false);
+                openPortal.SetXY(-this.width / 2, -this.height / 2);
+            }
+            else
+            {
+                SpaceShip = new Sprite("Terrain/player_ship.png");
+                SpaceShip.SetXY(-this.width / 2, -this.height / 2);
+                this.AddChild(SpaceShip);
+            }
 
             sceneManager = game.FindObjectOfType<SceneManager>();
             //Console.WriteLine(sceneManager == null);
@@ -36,6 +51,7 @@ namespace GXPEngine
 
         private void Update()
         {
+            if(!isSpaceShip)
             if (!portalopened)
                 closedPortal.Animate(0.2f);
             else
@@ -48,9 +64,12 @@ namespace GXPEngine
 
         public void OpenThePortal()
         {
-            this.RemoveChild(closedPortal);
-            this.AddChild(openPortal);
-            portalopened = true;
+            if (!isSpaceShip)
+            {
+                this.RemoveChild(closedPortal);
+                this.AddChild(openPortal);
+            }
+                portalopened = true;
         }
 
         public void FinishLevel()

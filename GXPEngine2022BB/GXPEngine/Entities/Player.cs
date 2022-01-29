@@ -35,7 +35,7 @@ namespace GXPEngine
         //private String characterName;
 
         public int HP = 6;
-        public int damage = 1;
+        public int damage = 2;
         public int maxHP = 6;
 
         private AnimationSprite animations;

@@ -46,7 +46,7 @@
     <property name="Damage" type="int" value="2"/>
     <property name="EnemyFileName" value="blue_slime.png"/>
     <property name="HP" type="int" value="10"/>
-    <property name="ItemDropped" type="int" value="19"/>
+    <property name="ItemDropped" type="int" value="20"/>
    </properties>
   </object>
  </objectgroup>
